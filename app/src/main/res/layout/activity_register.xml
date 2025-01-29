@@ -1,0 +1,363 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rootLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layoutDirection="rtl"
+    tools:context=".Register">
+
+
+    <LinearLayout
+        android:id="@+id/main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="10dp"
+        android:gravity="center_horizontal"
+        android:layoutDirection="rtl"
+        android:orientation="vertical">
+
+
+        <!-- מסגרת לחלק העליון של המסך -->
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_marginBottom="15dp"
+            android:layout_weight="0.4"
+            android:layoutDirection="rtl">
+
+            <!-- תיבת תצוגה עם גראדיאנט מעוגל, שמשמש כרקע לטקסט -->
+
+            <!-- כותרת טקסט ראשית, מוצמדת לימין -->
+            <View
+                android:id="@+id/box"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/rounded_background" />
+
+            <TextView
+                android:id="@+id/personalAreaH"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right|center_vertical"
+                android:layout_marginTop="30dp"
+                android:layout_marginRight="25dp"
+                android:fontFamily="@font/assistantbold"
+                android:text="@string/register"
+                android:textColor="#8257E3"
+                android:textSize="40dp"
+                android:textStyle="bold" />
+
+            <!-- כותרת טקסט משנית, מוצמדת לימין, גם היא מעל ה-View -->
+            <TextView
+                android:id="@+id/personalAreaT"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right|center_vertical"
+                android:layout_marginTop="70dp"
+                android:layout_marginRight="25dp"
+                android:fontFamily="@font/assistantregular"
+                android:text="@string/registerT"
+                android:textSize="18dp" />
+        </FrameLayout>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <EditText
+                    android:id="@+id/inputN"
+                    android:layout_width="360dp"
+                    android:layout_height="53dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/rounded_input_background"
+                    android:fontFamily="@font/assistantregular"
+                    android:gravity="right"
+                    android:hint="@string/fName"
+                    android:inputType="text"
+                    android:maxLines="1"
+                    android:padding="16dp"
+                    android:scrollbars="none"
+                    android:singleLine="true"
+                    android:textSize="18dp" />
+
+                <EditText
+                    android:id="@+id/inputEmail"
+                    android:layout_width="360dp"
+                    android:layout_height="53dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/rounded_input_background"
+                    android:fontFamily="@font/assistantregular"
+                    android:gravity="right"
+                    android:hint="@string/email"
+                    android:inputType="textEmailAddress"
+                    android:maxLines="1"
+                    android:padding="16dp"
+                    android:scrollbars="none"
+                    android:singleLine="true"
+                    android:textSize="18dp" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/password"
+                    android:layout_width="360dp"
+                    android:layout_height="53dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="20dp"
+                    android:gravity="center_vertical"
+                    app:hintEnabled="false"
+                    app:passwordToggleEnabled="true"
+                    app:passwordToggleTint="@color/black">
+
+                    <EditText
+                        android:id="@+id/inputPassword"
+                        android:layout_width="360dp"
+                        android:layout_height="53dp"
+                        android:layout_gravity="center"
+                        android:background="@drawable/rounded_input_background"
+                        android:fontFamily="@font/assistantregular"
+                        android:gravity="right"
+                        android:hint="@string/password"
+                        android:inputType="textPassword"
+                        android:maxLines="1"
+                        android:padding="16dp"
+                        android:scrollbars="none"
+                        android:textSize="18dp" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <EditText
+                    android:id="@+id/inputP"
+                    android:layout_width="360dp"
+                    android:layout_height="53dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/rounded_input_background"
+                    android:digits="0123456789"
+                    android:fontFamily="@font/assistantregular"
+                    android:gravity="right"
+                    android:hint="@string/phone"
+                    android:inputType="phone"
+                    android:maxLength="10"
+                    android:maxLines="1"
+                    android:padding="16dp"
+                    android:scrollbars="none"
+                    android:singleLine="true"
+                    android:textSize="18dp" />
+
+                <EditText
+                    android:id="@+id/inputAge"
+                    android:layout_width="360dp"
+                    android:layout_height="53dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="20dp"
+                    android:gravity="right"
+                    android:digits="0123456789"
+                    android:fontFamily="@font/assistantregular"
+                    android:background="@drawable/rounded_input_background"
+                    android:hint="@string/age"
+                    android:inputType="number"
+                    android:maxLines="1"
+                    android:imeOptions="actionDone"
+                    android:padding="16dp"
+                    android:scrollbars="none"
+                    android:singleLine="true"
+                    android:textSize="18dp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="34dp"
+                    android:layout_marginLeft="34dp"
+                    android:layout_marginTop="20dp"
+                    android:fontFamily="@font/assistantregular"
+                    android:text="@string/addPhoneNum"
+                    android:textSize="13dp" />
+
+                <EditText
+                    android:id="@+id/inputPSOS1"
+                    android:layout_width="360dp"
+                    android:layout_height="53dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/rounded_input_background"
+                    android:digits="0123456789"
+                    android:fontFamily="@font/assistantregular"
+                    android:gravity="right"
+                    android:hint="@string/phone1sos"
+                    android:inputType="phone"
+                    android:maxLength="10"
+                    android:padding="16dp"
+                    android:scrollbars="none"
+                    android:singleLine="true"
+                    android:textSize="18dp" />
+
+                <EditText
+                    android:id="@+id/inputPSOS2"
+                    android:layout_width="360dp"
+                    android:layout_height="53dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/rounded_input_background"
+                    android:digits="0123456789"
+                    android:fontFamily="@font/assistantregular"
+                    android:gravity="right"
+                    android:hint="@string/phone2sos"
+                    android:inputType="phone"
+                    android:maxLength="10"
+                    android:maxLines="1"
+                    android:padding="16dp"
+                    android:scrollbars="none"
+                    android:singleLine="true"
+                    android:textSize="18dp" />
+
+                <EditText
+                    android:id="@+id/inputPSOS3"
+                    android:layout_width="360dp"
+                    android:layout_height="53dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/rounded_input_background"
+                    android:digits="0123456789"
+                    android:fontFamily="@font/assistantregular"
+                    android:gravity="right"
+                    android:hint="@string/phone3sos"
+                    android:inputType="phone"
+                    android:maxLength="10"
+                    android:maxLines="1"
+                    android:padding="16dp"
+                    android:scrollbars="none"
+                    android:singleLine="true"
+                    android:textSize="18dp" />
+
+                <RadioGroup
+                    android:id="@+id/genderRadioGroup"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginRight="35dp"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@+id/maleRadioButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:focusable="true"
+                        android:fontFamily="@font/assistantregular"
+                        android:text="@string/male"
+                        android:textSize="15dp" />
+
+                    <RadioButton
+                        android:id="@+id/femaleRadioButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="10dp"
+                        android:focusable="true"
+                        android:fontFamily="@font/assistantregular"
+                        android:text="@string/female"
+                        android:textSize="15dp" />
+
+                    <RadioButton
+                        android:id="@+id/otherRadioButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="10dp"
+                        android:focusable="true"
+                        android:fontFamily="@font/assistantregular"
+                        android:text="@string/other"
+                        android:textSize="15dp" />
+                </RadioGroup>
+
+                <CheckBox
+                    android:id="@+id/termsCheckBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="30dp"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="4dp"
+                    android:focusable="true"
+                    android:fontFamily="@font/assistantregular"
+                    android:text="@string/termsH"
+                    android:textSize="16dp" />
+
+            </LinearLayout>
+        </ScrollView>
+
+        <Button
+            android:id="@+id/btnCreateRegister"
+            android:layout_width="360dp"
+            android:layout_height="53dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="20dp"
+            android:background="?android:attr/selectableItemBackground"
+            android:focusable="true"
+            android:fontFamily="@font/assistantregular"
+            android:foreground="@drawable/backgroundbtn2"
+            android:text="@string/register"
+            android:textColor="#8257E3"
+            android:textSize="17dp" />
+
+
+        <TextView
+            android:id="@+id/loginInRegisterPage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:fontFamily="@font/assistantregular"
+            android:text="@string/loginInRegisterPage"
+            android:textSize="16dp" />
+
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/videoContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="visible">
+
+        <!-- הגרדיאנט שקוף ברקע, מתחת לווידאו -->
+        <View
+            android:id="@+id/transparentBackground"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#CCD1BDFF"
+            android:clickable="true"
+            android:elevation="1dp"
+            android:visibility="visible" />
+
+        <!-- וידאו שמכסה את המסך עם elevation מעל הגרדיאנט -->
+        <VideoView
+            android:id="@+id/registerVideo"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:elevation="10dp" />
+
+        <!-- כפתור סגירה מעל הווידאו -->
+
+
+        <ImageButton
+            android:id="@+id/closeVideoButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/skipen"
+            android:background="@android:color/transparent"
+            android:layout_gravity="left|top"
+            android:layout_marginTop="80dp"
+            android:layout_marginLeft="15dp"
+            android:focusable="true"
+            android:elevation="11dp"/>
+
+    </FrameLayout>
+
+</FrameLayout>
+

@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ndroid="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:layoutDirection="rtl"
+    android:orientation="vertical"
+    tools:context=".Chat">
+
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="160dp"
+        android:layoutDirection="rtl">
+
+        <View
+            android:id="@+id/box"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rounded_background" />
+
+
+        <TextView
+            android:id="@+id/chatT"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="35dp"
+            android:fontFamily="@font/assistantbold"
+            android:gravity="center"
+            android:singleLine="true"
+            android:text="@string/chatT"
+            android:textColor="#8257E3"
+            android:textSize="35dp"
+            android:textStyle="bold" />
+
+    </FrameLayout>
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_gravity="center"
+        android:layout_weight="10"
+        android:overScrollMode="ifContentScrolls" />
+
+    <LinearLayout
+        android:id="@+id/currQuestion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="16dp"
+        android:background="#FEF7FF"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1">
+
+            <TextView
+                android:id="@+id/timerTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="13dp"
+                android:layout_marginRight="13dp"
+                android:fontFamily="@font/assistantbold"
+                android:gravity="right|center_vertical"
+                android:paddingEnd="50dp"
+                android:text="00:00"
+                android:textColor="#8257E3"
+                android:textSize="17dp"
+                android:visibility="gone" />
+
+            <EditText
+                android:id="@+id/inputQ"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@drawable/rounded_input_background"
+                android:fontFamily="@font/assistantbold"
+                android:gravity="right|center_vertical"
+                android:hint="@string/chatInput"
+                android:inputType="text"
+                android:padding="12dp"
+                android:paddingEnd="50dp"
+                android:textSize="17dp" />
+
+            <ImageButton
+                android:id="@+id/send"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:layout_gravity="end|center_vertical"
+                android:layout_marginEnd="8dp"
+                android:background="@android:color/transparent"
+                android:focusable="true"
+                android:src="@drawable/send" />
+
+        </FrameLayout>
+
+        <ImageButton
+            android:id="@+id/record"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_gravity="center_vertical"
+            android:background="@android:color/transparent"
+            android:focusable="true"
+            android:src="@drawable/microphone" />
+
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/bottomNavFragment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+
+</LinearLayout>

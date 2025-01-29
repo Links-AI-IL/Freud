@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:gravity="bottom"
+    android:padding="10dp"
+    android:background="@android:color/white"
+    android:layoutDirection="rtl">
+
+    <ImageButton
+        android:id="@+id/rulerSos"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:background="@android:color/transparent"
+        android:focusable="true"
+        android:src="@drawable/sos" />
+
+    <ImageButton
+        android:id="@+id/rulerPhone"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:background="@android:color/transparent"
+        android:focusable="true"
+        android:src="@drawable/phone" />
+
+    <ImageButton
+        android:id="@+id/rulerH"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:background="@android:color/transparent"
+        android:focusable="true"
+        android:src="@drawable/home" />
+
+    <ImageButton
+        android:id="@+id/rulerPersonalA"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:background="@android:color/transparent"
+        android:focusable="true"
+        android:src="@drawable/personalarea" />
+
+    <ImageButton
+        android:id="@+id/rulerC"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:background="@android:color/transparent"
+        android:focusable="true"
+        android:src="@drawable/chat" />
+
+</LinearLayout>

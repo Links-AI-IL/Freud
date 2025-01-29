@@ -1,0 +1,697 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    android:layoutDirection="rtl"
+    tools:context=".Helplines">
+
+    <!-- מסגרת לחלק העליון של המסך -->
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="0.4"
+        android:layoutDirection="rtl">
+
+        <!-- תיבת תצוגה עם גראדיאנט מעוגל, שמשמש כרקע לטקסט -->
+        <View
+            android:id="@+id/box"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/rounded_background" />
+
+        <!-- כותרת טקסט ראשית, מוצמדת לימין -->
+        <TextView
+            android:id="@+id/personalAreaH"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/helplinesH"
+            android:textColor="#8257E3"
+            android:textSize="40dp"
+            android:textStyle="bold"
+            android:singleLine="true"
+            android:fontFamily="@font/assistantbold"
+            android:layout_gravity="right|center_vertical"
+            android:layout_marginRight="25dp"
+            android:layout_marginTop="30dp"/>
+
+        <!-- כותרת טקסט משנית, מוצמדת לימין, גם היא מעל ה-View -->
+        <TextView
+            android:id="@+id/personalAreaT"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/helplinesT"
+            android:fontFamily="@font/assistantregular"
+            android:textSize="18dp"
+            android:singleLine="true"
+            android:layout_gravity="right|center_vertical"
+            android:layout_marginRight="25dp"
+            android:layout_marginTop="70dp" />
+    </FrameLayout>
+
+    <EditText
+        android:id="@+id/searchH"
+        android:layout_width="360dp"
+        android:layout_height="53dp"
+        android:hint="@string/search"
+        android:drawableLeft="@drawable/baseline_search_24"
+        android:inputType="text"
+        android:padding="16dp"
+        android:gravity="right"
+        android:textSize="18dp"
+        android:fontFamily="@font/assistantregular"
+        android:background="@drawable/rounded_input_background"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="15dp"
+        android:layout_gravity="center"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:id="@+id/helplinesLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp">
+
+            <!--            object 1 -->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/helpEranH"
+                android:fontFamily="@font/assistantregular"
+                android:textColor="#8257E3"
+                android:textSize="15dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/assistantbold"
+                android:text="@string/helpEranN"
+                android:textSize="22dp"
+                android:layout_marginTop="4dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/helpEranT"
+                android:fontFamily="@font/assistantregular"
+                android:textSize="17dp"
+                android:layout_marginTop="4dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/helpEranP"
+                android:fontFamily="@font/assistantregular"
+                android:drawableStart="@drawable/telephone"
+                android:drawablePadding="8dp"
+                android:textSize="16dp"
+                android:layout_marginTop="8dp"
+                android:autoLink="phone"
+                android:textColorLink="@android:color/black"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/helpEranE"
+                android:fontFamily="@font/assistantregular"
+                android:drawableStart="@drawable/email"
+                android:drawablePadding="8dp"
+                android:textSize="16dp"
+                android:layout_marginTop="4dp"
+                android:autoLink="email"
+                android:textColorLink="@android:color/black"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/helpEranW"
+                android:fontFamily="@font/assistantregular"
+                android:drawableStart="@drawable/internet"
+                android:drawablePadding="8dp"
+                android:textSize="16dp"
+                android:layout_marginTop="4dp"
+                android:autoLink="web"
+                android:textColorLink="@android:color/black"
+                android:layout_marginBottom="10dp"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="#BDBDBD"
+                android:layout_marginVertical="8dp" />
+
+        </LinearLayout>
+
+            <!--            object 2 -->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/helpSaharH"
+                    android:fontFamily="@font/assistantregular"
+                    android:textColor="#8257E3"
+                    android:textSize="15dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/assistantbold"
+                    android:text="@string/helpSaharN"
+                    android:textSize="22dp"
+                    android:layout_marginTop="4dp" />
+
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/helpSaharT"
+                    android:fontFamily="@font/assistantregular"
+                    android:textSize="17dp"
+                    android:layout_marginTop="4dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/helpSaharP"
+                    android:fontFamily="@font/assistantregular"
+                    android:drawableStart="@drawable/telephone"
+                    android:drawablePadding="8dp"
+                    android:textSize="16dp"
+                    android:layout_marginTop="8dp"
+                    android:autoLink="phone"
+                    android:textColorLink="@android:color/black"/>
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/helpSaharW"
+                    android:fontFamily="@font/assistantregular"
+                    android:drawableStart="@drawable/internet"
+                    android:drawablePadding="8dp"
+                    android:textSize="16dp"
+                    android:layout_marginTop="4dp"
+                    android:autoLink="web"
+                    android:textColorLink="@android:color/black"
+                    android:layout_marginBottom="10dp"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:background="#BDBDBD"
+                    android:layout_marginVertical="8dp" />
+
+            </LinearLayout>
+
+            <!--            object 3 -->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/helpNatalH"
+                    android:fontFamily="@font/assistantregular"
+                    android:textColor="#8257E3"
+                    android:textSize="15dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/assistantbold"
+                    android:text="@string/helpNatalN"
+                    android:textSize="22dp"
+                    android:layout_marginTop="4dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/helpNatalT"
+                    android:fontFamily="@font/assistantregular"
+                    android:textSize="17dp"
+                    android:layout_marginTop="4dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/helpNatalP"
+                    android:fontFamily="@font/assistantregular"
+                    android:drawableStart="@drawable/telephone"
+                    android:drawablePadding="8dp"
+                    android:textSize="16dp"
+                    android:layout_marginTop="8dp"
+                    android:autoLink="phone"
+                    android:textColorLink="@android:color/black"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/helpNatalE"
+                    android:fontFamily="@font/assistantregular"
+                    android:drawableStart="@drawable/email"
+                    android:drawablePadding="8dp"
+                    android:textSize="16dp"
+                    android:layout_marginTop="4dp"
+                    android:autoLink="email"
+                    android:textColorLink="@android:color/black"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/helpNatalW"
+                    android:fontFamily="@font/assistantregular"
+                    android:drawableStart="@drawable/internet"
+                    android:drawablePadding="8dp"
+                    android:textSize="16dp"
+                    android:layout_marginTop="4dp"
+                    android:autoLink="web"
+                    android:textColorLink="@android:color/black"
+                    android:layout_marginBottom="10dp"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:background="#BDBDBD"
+                    android:layout_marginVertical="8dp" />
+
+            </LinearLayout>
+
+            <!--            object 4 -->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/helpNo2violenceH"
+                    android:fontFamily="@font/assistantregular"
+                    android:textColor="#8257E3"
+                    android:textSize="15dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/assistantbold"
+                    android:text="@string/helpNo2violenceN"
+                    android:textSize="22dp"
+                    android:layout_marginTop="4dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/helpNo2violenceT"
+                    android:fontFamily="@font/assistantregular"
+                    android:textSize="17dp"
+                    android:layout_marginTop="4dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/helpNo2violenceP"
+                    android:fontFamily="@font/assistantregular"
+                    android:drawableStart="@drawable/telephone"
+                    android:drawablePadding="8dp"
+                    android:textSize="16dp"
+                    android:layout_marginTop="8dp"
+                    android:autoLink="phone"
+                    android:textColorLink="@android:color/black"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/helpNo2violenceE"
+                    android:fontFamily="@font/assistantregular"
+                    android:drawableStart="@drawable/email"
+                    android:drawablePadding="8dp"
+                    android:textSize="16dp"
+                    android:layout_marginTop="4dp"
+                    android:autoLink="email"
+                    android:textColorLink="@android:color/black"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/helpNo2violenceW"
+                    android:fontFamily="@font/assistantregular"
+                    android:drawableStart="@drawable/internet"
+                    android:drawablePadding="8dp"
+                    android:textSize="16dp"
+                    android:layout_marginTop="4dp"
+                    android:autoLink="web"
+                    android:textColorLink="@android:color/black"
+                    android:layout_marginBottom="10dp"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:background="#BDBDBD"
+                    android:layout_marginVertical="8dp" />
+
+            </LinearLayout>
+
+            <!--            object 5 -->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/assistantregular"
+                    android:text="@string/helpMensH"
+                    android:textColor="#8257E3"
+                    android:textSize="15dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:fontFamily="@font/assistantbold"
+                    android:text="@string/helpMensN"
+                    android:textSize="22dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:fontFamily="@font/assistantregular"
+                    android:text="@string/helpMensT"
+                    android:textSize="17dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:drawableStart="@drawable/telephone"
+                    android:drawablePadding="8dp"
+                    android:fontFamily="@font/assistantregular"
+                    android:text="@string/helpMensP"
+                    android:textSize="16dp"
+                    android:autoLink="phone"
+                    android:textColorLink="@android:color/black"/>
+
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:drawableStart="@drawable/internet"
+                    android:drawablePadding="8dp"
+                    android:fontFamily="@font/assistantregular"
+                    android:text="@string/helpMensW"
+                    android:singleLine="true"
+                    android:textSize="16dp"
+                    android:autoLink="web"
+                    android:textColorLink="@android:color/black"
+                    android:layout_marginBottom="10dp"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:background="#BDBDBD"
+                    android:layout_marginVertical="8dp" />
+
+            </LinearLayout>
+
+            <!--            object 6 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/helpLgbtH"
+                    android:fontFamily="@font/assistantregular"
+                    android:textColor="#8257E3"
+                    android:textSize="15dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/assistantbold"
+                    android:text="@string/helpLgbtN"
+                    android:textSize="22dp"
+                    android:layout_marginTop="4dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/helpLgbtT"
+                    android:fontFamily="@font/assistantregular"
+                    android:textSize="17dp"
+                    android:layout_marginTop="4dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/helpLgbtP"
+                    android:fontFamily="@font/assistantregular"
+                    android:drawableStart="@drawable/telephone"
+                    android:drawablePadding="8dp"
+                    android:textSize="16dp"
+                    android:layout_marginTop="8dp"
+                    android:autoLink="phone"
+                    android:textColorLink="@android:color/black" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/helpLgbtE"
+                    android:fontFamily="@font/assistantregular"
+                    android:drawableStart="@drawable/email"
+                    android:drawablePadding="8dp"
+                    android:textSize="16dp"
+                    android:layout_marginTop="4dp"
+                    android:autoLink="email"
+                    android:textColorLink="@android:color/black"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/helpLgbtW"
+                    android:fontFamily="@font/assistantregular"
+                    android:drawableStart="@drawable/internet"
+                    android:drawablePadding="8dp"
+                    android:textSize="16dp"
+                    android:layout_marginTop="4dp"
+                    android:autoLink="web"
+                    android:textColorLink="@android:color/black"
+                    android:layout_marginBottom="10dp"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:background="#BDBDBD"
+                    android:layout_marginVertical="8dp" />
+
+            </LinearLayout>
+
+            <!--            object 7 -->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/helpHoshenH"
+                    android:fontFamily="@font/assistantregular"
+                    android:textColor="#8257E3"
+                    android:textSize="15dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/assistantbold"
+                    android:text="@string/helpHoshenN"
+                    android:textSize="22dp"
+                    android:layout_marginTop="4dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/helpHoshenT"
+                    android:fontFamily="@font/assistantregular"
+                    android:textSize="17dp"
+                    android:layout_marginTop="4dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/helpHoshenP"
+                    android:fontFamily="@font/assistantregular"
+                    android:drawableStart="@drawable/telephone"
+                    android:drawablePadding="8dp"
+                    android:textSize="16dp"
+                    android:layout_marginTop="8dp"
+                    android:autoLink="phone"
+                    android:textColorLink="@android:color/black"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/helpHoshenE"
+                    android:fontFamily="@font/assistantregular"
+                    android:drawableStart="@drawable/email"
+                    android:drawablePadding="8dp"
+                    android:textSize="16dp"
+                    android:layout_marginTop="4dp"
+                    android:autoLink="email"
+                    android:textColorLink="@android:color/black"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/helpHoshenW"
+                    android:fontFamily="@font/assistantregular"
+                    android:drawableStart="@drawable/internet"
+                    android:drawablePadding="8dp"
+                    android:textSize="16dp"
+                    android:layout_marginTop="4dp"
+                    android:autoLink="web"
+                    android:textColorLink="@android:color/black"
+                    android:layout_marginBottom="10dp"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:background="#BDBDBD"
+                    android:layout_marginVertical="8dp" />
+
+            </LinearLayout>
+
+            <!--            object 8 -->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/helpIgyH"
+                    android:fontFamily="@font/assistantregular"
+                    android:textColor="#8257E3"
+                    android:textSize="15dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/assistantbold"
+                    android:text="@string/helpIgyN"
+                    android:textSize="22dp"
+                    android:layout_marginTop="4dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/helpIgyT"
+                    android:fontFamily="@font/assistantregular"
+                    android:textSize="17dp"
+                    android:layout_marginTop="4dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/helpIgyP"
+                    android:fontFamily="@font/assistantregular"
+                    android:drawableStart="@drawable/telephone"
+                    android:drawablePadding="8dp"
+                    android:textSize="16dp"
+                    android:layout_marginTop="8dp"
+                    android:autoLink="phone"
+                    android:textColorLink="@android:color/black"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/helpIgyE"
+                    android:fontFamily="@font/assistantregular"
+                    android:drawableStart="@drawable/email"
+                    android:drawablePadding="8dp"
+                    android:textSize="16dp"
+                    android:layout_marginTop="4dp"
+                    android:autoLink="email"
+                    android:textColorLink="@android:color/black"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/helpIgyW"
+                    android:fontFamily="@font/assistantregular"
+                    android:drawableStart="@drawable/internet"
+                    android:drawablePadding="8dp"
+                    android:textSize="16dp"
+                    android:layout_marginTop="4dp"
+                    android:autoLink="web"
+                    android:textColorLink="@android:color/black"
+                    android:layout_marginBottom="10dp"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:background="#BDBDBD"
+                    android:layout_marginVertical="8dp" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+    <FrameLayout
+        android:id="@+id/bottomNavFragment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+
+</LinearLayout>

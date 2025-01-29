@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="45dp"
+    android:height="45dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+
+    <!-- שכבה ראשונה - צל או רקע טשטוש -->
+<path
+android:fillColor="#9EC2B5E0"
+    android:pathData="M20.285,6.709c0.391,-0.391 0.391,-1.023 0,-1.414 -0.391,-0.391 -1.023,-0.391 -1.414,0L10,14.585 5.707,10.293c-0.391,-0.391 -1.023,-0.391 -1.414,0 -0.391,0.391 -0.391,1.023 0,1.414l5,5c0.391,0.391 1.023,0.391 1.414,0l9,-9z"
+    android:scaleX="1.2"
+    android:scaleY="1.2"/>
+
+    <!-- שכבה שנייה - אייקון הוי עצמו -->
+<path
+android:fillColor="#8257E3"
+android:pathData="M20.285,6.709c0.391,-0.391 0.391,-1.023 0,-1.414 -0.391,-0.391 -1.023,-0.391 -1.414,0L10,14.585 5.707,10.293c-0.391,-0.391 -1.023,-0.391 -1.414,0 -0.391,0.391 -0.391,1.023 0,1.414l5,5c0.391,0.391 1.023,0.391 1.414,0l9,-9z" />
+    </vector>

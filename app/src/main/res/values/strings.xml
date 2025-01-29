@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Freud</string>
+    <string name="welcomeText">Nice to meet you, I am Freud, your digital friend\nand I would be happy to assist you with anything you need</string>
+    <string name="login">Login</string>
+    <string name="register">Register</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="welcome">Welcome</string>
+    <string name="yuval">In memory of Yuval Seri</string>
+    <string name="loginH">Login</string>
+    <string name="loginT">Log in with your account</string>
+    <string name="registerInLoginPage">Don\'t have an account yet? Register now</string>
+    <string name="registerT">Create your account</string>
+    <string name="fName">Full Name</string>
+    <string name="phone">Phone</string>
+    <string name="phone1sos">Emergency Phone 1</string>
+    <string name="phone2sos">Emergency Phone 2</string>
+    <string name="phone3sos">Emergency Phone 3</string>
+    <string name="newPsw">New Password</string>
+    <string name="sosPhones">Emergency Phones</string>
+    <string name="save">Save</string>
+    <string name="male">Male</string>
+    <string name="female">Female</string>
+    <string name="other">Other</string>
+    <string name="termsH">I have read and agree to the terms</string>
+    <string name="addPhoneNum">Please enter 3 emergency phone numbers</string>
+    <string name="OrLogWith">Or log in with</string>
+    <string name="avatarH">Avatar</string>
+    <string name="selectAvatar">Please select your avatar</string>
+    <string name="next">Next</string>
+    <string name="forgetPasswordH">Forgot Password</string>
+    <string name="forgetPasswordT">Enter your email and we\'ll send you a reset email</string>
+    <string name="avatar1">Avatar 1</string>
+    <string name="loginInRegisterPage">Already have an account? Sign in now</string>
+    <string name="guest">Anonymous Login</string>
+    <string name="securityH">Data Security</string>
+    <string name="securityT">This app is protected by the Lynx Cyber security system\nand safeguards user privacy</string>
+    <string name="homeHName">Good morning</string>
+    <string name="homeT">What can I assist you with today?</string>
+    <string name="sosT">Would you like to send an emergency message to your contacts?</string>
+    <string name="personalAreaH">Personal Area</string>
+    <string name="personalAreaT">Here you can edit your account</string>
+    <string name="title_activity_main2">MainActivity2</string>
+    <string name="conectUsH">Contact Us</string>
+    <string name="conectUsT">We are here to help! Contact us with any questions or feedback, and we\'ll get back to you as soon as possible.</string>
+    <string name="conectUsMT">Message</string>
+    <string name="conectUsT2">How useful was our app for you?\nWe\'d love to hear your opinion!</string>
+    <string name="send">Send</string>
+    <string name="feedback1">Slightly\nUseful</string>
+    <string name="feedback2">Moderately Useful</string>
+    <string name="feedback3">Very\nUseful</string>
+    <string name="feedback4">Extremely Useful</string>
+    <string name="chatH">Chat</string>
+    <string name="chatInput">Type a message</string>
+    <string name="helplinesH">Helpline List</string>
+    <string name="helplinesT">Here is a list of helplines for use if needed</string>
+    <string name="search">Search</string>
+    <string name="helpEranH">Immediate Support</string>
+    <string name="helpEranN">ERAN</string>
+    <string name="helpEranT">Emotional First Aid</string>
+    <string name="helpEranP">1–800–241–201</string>
+    <string name="helpEranE">eran1201@eran.org.il</string>
+    <string name="helpEranW">https://www.eran.org.il/</string>
+    <string name="helpSaharH">Immediate Support</string>
+    <string name="helpSaharN">Sahar</string>
+    <string name="helpSaharT">Support and Listening Network</string>
+    <string name="helpSaharP">055–957–1399</string>
+    <string name="helpSaharE">email</string>
+    <string name="helpSaharW">https://www.sahar.org.il/</string>
+    <string name="helpNatalH">Immediate Support</string>
+    <string name="helpNatalN">NATAL</string>
+    <string name="helpNatalT">Trauma Victims of National Violence</string>
+    <string name="helpNatalP">1–800–363–363</string>
+    <string name="helpNatalE">natal@natal.org.il</string>
+    <string name="helpNatalW">https://www.natal.org.il/</string>
+    <string name="helpNo2violenceH">Immediate Support</string>
+    <string name="helpNo2violenceN">No to Violence</string>
+    <string name="helpNo2violenceT">No to Violence Against Women</string>
+    <string name="helpNo2violenceP">*6724</string>
+    <string name="helpNo2violenceE">donation@no2violence.co.il</string>
+    <string name="helpNo2violenceW">https://no2violence.co.il/</string>
+    <string name="helpMensH">Immediate Support</string>
+    <string name="helpMensN">National Helpline for Men</string>
+    <string name="helpMensT">Ministry of Welfare and Social Affairs</string>
+    <string name="helpMensP">1203</string>
+    <string name="helpMensE">email</string>
+    <string name="helpMensW">https://www.gov.il/he/departments/molsa/govil-landing-page</string>
+    <string name="helpLgbtH">Immediate Support</string>
+    <string name="helpLgbtN">LGBT Association</string>
+    <string name="helpLgbtT">Listening Line</string>
+    <string name="helpLgbtP">*2982</string>
+    <string name="helpLgbtE">yesh@lgbt.org.il</string>
+    <string name="helpLgbtW">https://www.lgbt.org.il/</string>
+    <string name="helpHoshenH">Education and Awareness</string>
+    <string name="helpHoshenN">Hoshen</string>
+    <string name="helpHoshenT">Education and Change - The Educational Organization of the LGBT Community</string>
+    <string name="helpHoshenP">03–603–3373</string>
+    <string name="helpHoshenE">office@hoshen.org</string>
+    <string name="helpHoshenW">https://www.hoshen.org/</string>
+    <string name="helpIgyH">LGBT Youth Organization</string>
+    <string name="helpIgyN">IGY</string>
+    <string name="helpIgyT">Support Groups and Meetings for LGBT Youth in Distress</string>
+    <string name="helpIgyP">054–911–9726</string>
+    <string name="helpIgyE">office@igy.org.il</string>
+    <string name="helpIgyW">https://www.igy.org.il/</string>
+    <string name="messageWhitL">Hello, this is a message from the Freud app team. One of our users is in distress. Attached is the user\'s message quote and their location: </string>
+    <string name="chatT">Chat</string>
+    <string name="dialogEmergency">It seems you are in distress.\nWould you like to talk to someone?</string>
+    <string name="no">No, thanks</string>
+    <string name="yes">Yes, please</string>
+    <string name="linksAi">©Links AI Group</string>
+    <string name="version">Version 1.0.0</string>
+    <string name="TPersonalAnonimus">Anonymous user - no data available for update</string>
+    <string name="sosSMS1">Hi, a help request was sent to you through the Freud app\n from-</string>
+    <string name="sosSMS2">Please help me, I am in urgent need\nLocation:</string>
+    <string name="TSosSmsAnonimus">Anonymous user - no emergency contacts found</string>
+    <string name="TSosSms">Emergency message sent to </string>
+    <string name="TSosSmsX">Message sending failed</string>
+    <string name="TAnonimusC">Anonymous user - for your privacy, your messages will not be saved in the chat</string>
+    <string name="TStartSpeek">Im listening…</string>
+    <string name="TToHelplines">No permission for a call - click on the helplines button</string>
+    <string name="TnoPTCall">No permission for a call - click on the helplines button</string>
+    <string name="TChooseOne">Please choose one of the options</string>
+    <string name="TFillAl">Please fill in all fields</string>
+    <string name="TFail">Feedback submission failed </string>
+    <string name="TThanksF">Thank you for your feedback!</string>
+    <string name="TEEmail">Please enter an email address</string>
+    <string name="TSEmail">A password reset email has been sent</string>
+    <string name="TSEmailF">Failed to send reset email, check the address and try again</string>
+    <string name="Hello">Hello </string>
+    <string name="feelingDepression">I am feeling depressed</string>
+    <string name="feelingSocialIsolation">I am feeling socially isolated</string>
+    <string name="experiencingAnxiety">I am experiencing anxiety</string>
+    <string name="feelingSad">I suffer from post-traumatic stress disorder</string>
+    <string name="selfConfidenceIssues">I am dealing with self-confidence issues</string>
+    <string name="dealingWithDivorce">I am dealing with a divorce</string>
+    <string name="needHelp">I suffer from the consequences of the seventh of October</string>
+    <string name="familyIssues">I am dealing with family issues</string>
+    <string name="newHere">Dont have an account yet? Register now</string>
+    <string name="newHere2">Register now</string>
+    <string name="welcome2">Welcome</string>
+    <string name="somthingW">One of the details is incorrect</string>
+    <string name="anonimusF">Anonymous login failed</string>
+    <string name="phoneMin10">Phone fields must contain 10 digits</string>
+    <string name="updatePS">Data saved successfully!</string>
+    <string name="coppy">Copied to clipboard</string>
+    <string name="Thelp">Helplines</string>
+    <string name="hebrewNS">Hebrew TTS not supported</string>
+    <string name="englishNS">English TTS not supported</string>
+    <string name="userExist1">Already have an account? Sign in now</string>
+    <string name="userExist2">Sign in now</string>
+    <string name="terms1">I agree to the Terms</string>
+    <string name="terms2">Terms</string>
+    <string name="enterYourName">Please enter your name</string>
+    <string name="enterEmail">Please enter your email</string>
+    <string name="enterPassword">Please enter a 6 digit password</string>
+    <string name="enterPhoneNumber">Please enter your personal phone number</string>
+    <string name="enterAge">Select an age group</string>
+    <string name="enterEmergencyPhone1">Please enter Emergency Phone 1</string>
+    <string name="enterEmergencyPhone2">Please enter Emergency Phone 2</string>
+    <string name="chooseG">Please select a gender</string>
+    <string name="acceptT">Please confirm that you have read and agree to the terms</string>
+    <string name="userAS">User created successfully</string>
+    <string name="userAF">Error creating user</string>
+    <string name="userE">Email already exists in the system</string>
+    <string name="chooseAvt">Please select an avatar</string>
+    <string name="successfullyAvt">Avatar saved successfully</string>
+    <string name="failedAvt">Failed to save avatar</string>
+    <string name="swich">He / En</string>
+    <string name="he">He</string>
+    <string name="en">En</string>
+    <string name="updateH">Version Update</string>
+    <string name="updateT">A version update is available to fix bugs</string>
+    <string name="updateB">Update</string>
+    <string name="forgetPasswordBtn">Forgot password?</string>
+    <string name="typing">Typing </string>
+    <string name="skip">skip </string>
+    <string name="age">age</string>
+    <string name="ageH">Select your age</string>
+    <string name="termsHebrew1">Terms of use on the FREUD website\nTerms of use and regulations\nClarification\nPlease read the terms very carefully, as the use of the site constitutes consent to all the terms contained therein.\nAny medical and\or quasi–medical and\or therapeutic and\or medicinal material that appears on this website and\or in any link and\or reference made through this website is for general information only and should not be considered in any way medical advice and\or Treatment recommendation and\or substitute for personal medical treatment and it does not replace treatment and\or professional medical advice. The information on this website is general and cannot be individually adapted to the needs of each and every person, and therefore in order to receive personal medical treatment and\or personal medical advice, you should contact your doctor.\nThe use of the FREUD website (hereinafter: the Site or FREUD) and the content presented therein (hereinafter: the Content), will be done by the user in accordance with and subject to the terms of use below (hereinafter: the Terms).\nThe terms will apply to any use made by you of the website and will form the legal basis for any discussion between you and FREUD (hereinafter: the Company).\nThe user\'s approval of the terms of use upon entering the website and\or actually using the website constitutes absolute agreement that the use of the website is not a substitute for medical advice and\or other professional advice and does not constitute medical advice of any kind.\nBy using the website, including providing information on the website, the user expresses his consent that the information he provided on the website will be stored in the company\'s databases and will be used for the purpose of adjusting the information on the website specifically for the user, as well as for the purpose of making a decision regarding the provision of services to the user in the future by the company, and the user also confirms that, subject to the provisions of the Protection Law Privacy, 1981–1981 and according to law, the company may transfer the information provided to any third party, as required and at its sole discretion.\nThe conditions regulate the relationship between the company and the users of the website, and subject to them you can join virtual communities, forums, chats, open blogs, open and upload albums, upload videos and audio files, to the website and receive information and\or content of various types and\or topics, to perform searches and more, in accordance with the instructions and rules detailed below (together below: the Services).\ndefinitions\nSurfer or user – means any person and\or corporation and\or any body that uses and\or surfs the website using a computer and\or other means, including cellular communication.\nThe Company – means, including its directors, employees, shareholders, parent companies, related companies, subsidiaries and anyone on its behalf.\ngeneral\nBrowsing and\or entering the website and\or using the services expresses and constitutes your agreement to the terms. If you do not agree to the terms, all or part of them, you may not use the website and\or services for any purpose whatsoever. The company reserves the right to update the terms, from time to time, at its sole discretion and without the need to deliver any notice in advance, and the updated terms will be binding from the moment they are published on the website.\nIn any case of a contradiction and\or inconsistency between the terms and any other publication, of any kind, the provisions of the terms and conditions shall prevail.\nThe site is intended solely for personal use and not for commercial and\or wholesale use, unless specifically stated otherwise. The surfer will keep the username and\or his personal passwords confidential, will not reveal or pass on to another person or others.\nDo not make any use of the company\'s databases or any part of them without the prior written approval of the company.\nintellectual property\nThe copyrights and intellectual property on the website, its services and any material and\or photograph and\or illustration included on the website belong to the company, or to third parties who have granted the company permission to use them within the aforementioned website and services. In this rule, and without exception to the generality of the foregoing, the company is the sole owner of the site\'s names and trademarks, of the site\'s patents and designs, both registered and unregistered, copyrights, trade secrets involved in the operation of the site and the provision of the services, the design of the site, the technological information involved in its operation, including but without detracting, software, applications, graphic and other files, computer codes, texts and\or any other material contained therein (hereinafter: the information).\nDo not copy, distribute, reproduce, display publicly, or give to a third party the information and\or any part of it. Do not change, publish, transmit, transfer, sell, distribute or make any commercial use, of the information and\or any part of it, except with prior written permission from the company.\nFor the avoidance of doubt, it is hereby clarified that the company is not responsible for damage or violation of any intellectual property rights, including trademarks and trade secrets in connection with the right of use granted to the user of the addresses on the website.\nLimitation of liability\nThe company does not guarantee that the services will not be interrupted, will be provided in order without interruptions, will exist safely and without errors, and will be immune from unauthorized access to the company\'s computers or from damages, breakdowns, malfunctions or failures in the hardware, software, lines and communication systems, at the company, its suppliers and\or who on her behalf.\nThe provision of services by the company depends, among other things, on third parties, and the company is not responsible for any act or omission of third parties and will not be responsible for any damage and\or loss and\or loss and\or expense caused to the surfer and\or any third party as a result and\or in connection with any such act or omission.\nThe company is not responsible for the availability of the services, and\or the content, form, and in general it is not responsible for the damage or violation of any intellectual property rights, including trademarks and trade secrets, in connection with the contents of the surfers or in connection with any other use of the surfers on the website and the services offered and included in it.\nThe company is not responsible for the opinions and\or contents and\or messages of the surfer on the website and\or any other service of the company and it is not responsible for the publication of the information contained and\or in any other service of the company, in general. Also, the company is not responsible for any damage and\or loss and\or loss and\or expense caused to the surfer as a result of storage and\or use and\or operation of the website and\or services, including due to infringement of property rights, copyrights, marks and names commercial, trade secrets, patents and designs, whether they are protected or not and\or due to invasion of privacy.\nThe information, software, products and services contained in this web portal may contain mistakes, inaccuracies or errors. Also, changes are constantly being made to the information on the company\'s website and\or its various suppliers may at any time make changes to the portal. Do not rely on advice received through the website for the purpose of making decisions on personal, medical, legal or financial issues; To this end, you must consult with a suitable professional in order to receive advice adapted to your special circumstances. No representation is made as to the suitability, reliability, timeliness and accuracy of the information, software, products, services and accompanying graphics contained in this web portal for any purpose.\nThe surfer declares that he is aware that all information, text, software, music, sound, software, graphics, video and any other material published or uploaded to the website and\or to any other service of the company is the sole responsibility of the surfer and he is solely responsible for the content and\or images and \or to other files uploaded and\or sent through and\or to the site and\or any of its services.\nThe surfer undertakes that any message, information, text, software, music, sound, image, graphics, video and any other material published or sent by him will be appropriate and will not infringe any right of another person, including intellectual property rights and copyrights. The surfer shall not upload to the site any illegal, threatening, libelous and\or slanderous content or material, obscene material, pornography, racism or any other material that violates the modesty of the individual and\or the general, material that may harm and\or harass other surfers. The surfer will not post and\or upload to the website and\or any other service of the company content or any material that may harm the public\'s feelings, that may constitute and\or encourage criminal behavior or establish grounds for a civil lawsuit or in any other way violate the provision of any law. The surfer will not collect data on other surfers and will not provide information about illegal actions. Also, the surfer will not upload any advertising or commercial material to the site and will not act in any way that could cause damage to the company (above and below: Prohibited Content).\nThe company does not edit and\or supervise the content uploaded to the website and\or services by the surfers and\or any third party and is not responsible for this content and\or for any result that will result from relying on the content and\or from using it. However, in accordance with the surfers request, the company reserves the right to edit, remove content, messages, photos and video content, and\or refuse to upload them, all as stated at its sole discretion. Also, the company reserves the right to claim compensation for any damage caused to it and\or to someone on its behalf and\or to its operators as a result of the prohibited content. The company neither controls, nor supervises, nor is it responsible for the information and\or services provided and\or advertised by others and\or through them, either directly or indirectly, including services and content sites of others to which there is a link from the website. The company does not guarantee that all the links will be correct and that at any time it will be possible to use them to reach an active website.\nAny use and reliance by the surfer on any content, information, advertisements, services, products, opinions and positions presented or published on the portal and\or in any of the services is done at the discretion of the surfer and his sole responsibility.\nIf the surfers communicate with third parties, all the terms of the engagement will be agreed directly between the surfers and the third parties, and the company will not be a party to the contract. The company is not responsible in any way, and will not bear any responsibility, for damages and\or other claims, which the surfers will have as a result of these engagements.\nThe surfer will not have any claim, claim, or demand against the company regarding the nature of the information, services and products advertised and\or provided on the site, their capabilities, their limitations, and their suitability to the needs of the surfer and\or to the reactions they will provoke (if any) in the surfers, and he thereby waives any claim and\or claim and\or demand as mentioned against the company and\or against anyone on its behalf.\nPublishing the content of the surfers or placing a link on the site by the company will not be interpreted as an offer to the surfer, as an expression of support, encouragement, agreement or sponsorship by the company for the content and\or services offered by others. Any reliance by the surfer on any content, information, advertisements, products, opinions and positions presented or published on websites to which there is a possibility of reference as mentioned above, including the information, content, opinions and positions presented or published there, is done at the discretion of the surfer and on his sole responsibility.\nThe company is not responsible for any direct, indirect, accidental, consequential damage, inability to use, loss of data and\or loss of profits resulting from and in connection with the use of the services and\or any information, content, services or products on the website and\or that can be accessed through the website , even if it has exercised any control over the contents on the website or that they can be accessed or viewed through the website, and even if it has become aware of the possibility of such damage, which may be caused to the user and\or any third party, and this in everything related to the website and\or services, for their use , for the inability to use them, for their cancellation, limitation or termination.\nEven if the company tried out of its good will and in accordance with the law, to help solve a problem and\or request of a surfer, this assistance will in no way be interpreted as imposing any responsibility on the company.\nUnder no circumstances will the company and\or anyone on its behalf be held liable for direct, indirect, punitive damages, incidental, special, or consequential damages, and\or any other damage of any kind, including, and without prejudice to the generality of the above, damages For the loss of use, the loss of data or the loss of profits, arising from or related in any way to the use of the services, for delay in use or the inability to use the provision or non–delivery of services, or any information, software, product, service and accompanying graphics obtained through the services, and\ or arising in any other way from the use of the services, either based on an agreement or in tort, either in absolute liability, and\or any other reason, even if the company or someone on its behalf became aware of the possibility of such damages. The company does not guarantee that all the links will be correct and that at any time it will be possible to use them to reach an active website.\nThe company reserves the right to download user content at its sole discretion, if it finds it offensive.\nPrivacy protection\nBrowsing the website and using the services included in it constitutes your consent to the fact that the company will be able to monitor your use of the services using cookies and\or similar means. The company may use any such information, for the purpose of control and\or supervision and\or development and\or maintaining the quality of the services, their level and integrity and\or for the purpose of complying with the provisions of any law, and\or for its needs, including the company\'s service and surveys.\nThe company is careful to observe the provisions of every law, including the provisions of the Privacy Protection Law, and it will preserve the privacy of surfers and will not disclose to anyone who is not authorized to do so by law, lists or documents in which the surfer\'s name and address are recorded or any other information regarding it, as well as any information concerning the use The surfer on the website, with the exception of details and public data published by the surfer himself. Without detracting from the above, the company reserves the right to disclose the surfer\'s details and any information related to the use the surfer made\does on the website, in accordance with the instructions of a court order, and\or as part of legal proceedings. If they arise between the user and the company, and\or in the case of the violation of the conditions by the user, and\or in the case that the company, at its sole discretion, believes that this is necessary to prevent serious damage to its body or property or that of anyone else and\or or in the case of merging the company\'s activities with some third party.\nIn accordance with the provisions of the Privacy Protection Law, 5511 – 1981, you confirm that you know and you give your consent that the details you provided when you registered to the website are true and accurate and were provided by you of your own free will.\nYou also know and you give your consent that the details as stated In this section, the company\'s database will be kept and the company will be allowed to use it, among other things, for collection purposes, direct mail and contact with the customer, providing service to customers, managing a database by force of law, managing a customer club, managing sales, marketing and recruiting customers.\nYou confirm that you know and you give your consent to this, that the company will be entitled to make use of the information for the purpose of contacting you with offers for other and\or additional services and\or products provided by the company and\or third parties, including through direct mail and direct mail services, Text messages (SMS), facsimile, automatic dialing system and email.\nAdvertising words\nBy browsing the portal and using the services and as long as you have not notified another company, you agree that the company will use your details to receive updates and\or material and\or advertising and\or marketing information through your e-mail address. If you do not agree to this, you must notify the company in writing.\nYour consent as stated above constitutes consent to the sending of advertisements according to the Telecommunications Law (Bezeq and Broadcasting) (Amendment No. 40), 2008 (hereinafter: the Law). It is clarified that despite your consent as stated, you will be entitled to withdraw this consent By sending a refusal notice to the company in writing or by the way in which the advertisement was sent to you.\nAs long as you have not revoked your consent to receiving advertisements, the company will be entitled, in accordance with the provisions of the law, to use the details of registered users and\or transfer the details of registered users to third parties in order to expose the registered users to updates and\or marketing material that may be relevant Regarding them, either by email, by text messages (SMS) or by other means, between materials that the registered user will choose to receive by registering for the service in the designated place on the website, and between materials that the company and\or third parties will choose to deliver to the registered user. A registered user who is not interested in this can cancel this option when registering as a registered user.\nDisconnection, Termination and Changes\nThe company may remove content and\or websites from the services, at its sole discretion and without the need to notify users of this, including blocking and\or limiting and\or stopping the provision of the services in circumstances in which a user made use of the services that may cause disruption to the services, to other users, or In a way that constitutes a civil or criminal wrongdoing, or in a way that raises a reasonable suspicion that the surfer is acting in a way that is against and\or violates the terms.\nThe company is also entitled to disconnect or limit or stop the provision of services at any time, including but without detracting, for the purpose of carrying out essential or immediate maintenance or construction operations in the systems used by it, in times of national emergency or for reasons of national security.\nThe blocking, interruption or limitation of the services, as stated above, does not impose any responsibility on the company, and\or detract from the surfer\'s obligation to behave at all times in accordance with the conditions.\nThe company may change from time to time the structure of the site, its appearance, the services in the portal, the scope and availability of the services and any other aspect involved - all without the need to notify the user. The surfer will not have any claim, claim and\or demand against the company for the implementation of such changes and\or malfunctions that will occur during their implementation.\nDeclarations and obligations of surfers\nIn addition, and without detracting from the generality of what is stated in the terms, each surfer declares and commits to the company as follows:\n- That he is at least 18 years old, or that he is under 18 years of age and informed his parents about his registration on the website, received their consent to this, and that both the surfer and his parents agreed to accept the terms, including the terms of the limitation of liability as mentioned above..\n- not to use and\or upload to the site content and\or photos and\or video clips that contain threatening, blatant, racist, or insulting nature, or pornographic or sexually explicit material or that may harm the public\'s feelings.\n- not to include in the content of the surfers uploaded by him any material that constitutes an invasion of privacy and\or intrusion into it, sedition, deception, violation of copyrights, rights of performers, violation of trademarks and trade names, models, patents, etc., violation of any other rights of third parties, wrongs commerciality and\or violation of the right to goodwill, and\or violation of contractual rights and\or fiduciary duties to others and\or any other violation of any law.\n- Because if he violates copyrights of any kind in relation to any of the company\'s services, including uploading photos and\or video content to the site, when he is not the legal owner of all the rights in the uploaded content and in relation to them, he is beautifying the company\'s power to remove from itself any responsibility and transfer to the surfer any claim on the subject.\n- Without deviating from the above, the company may claim from the infringer of the aforementioned rights, compensation for the damages caused to it.\nBecause he knows that any information, text, software, music, sound, software, graphics, video and any other material published or uploaded by him to the website in a private way is his sole responsibility and he is solely responsible for the uploaded content.\n- not to flood forums and\or any other service with idle messages and\or repeated messages, in a way that harms the use of that service.\n. not to use blunt or rude language, which may offend or harm\n- not to upload illegal material to the website, or material that encourages, supports, assists, provides instructions to perform or guides the performance of an act that constitutes a criminal offense according to the laws of the State of Israel.\nDo not upload to the site material that the user knows to be false or misleading.\nnot to include any material that constitutes defamation of a person.\nnot to include any material whose publication is prohibited according to the provisions of any law.\nnot to incite racism, injury to another person, murder or violation of the law.\nDo not publish personal details of other surfers or phone number.\n- Not to edit and\or publish any commercial advertising, surveys or contests through forums and\or any other service on the portal, except in the places designated for this as far as there are and subject to the other provisions of the conditions.\nNot to use the company\'s services for the purpose of performing an act or action prohibited by any law.\nto use the services in accordance with the conditions, the provisions of any law and subject to operating instructions and instructions provided to him, from time to time, by the company.\nNot to illegally penetrate material and\or computer files and\or transfer computer software, computer code or application that include a computer virus (virus), including hostile programs known as Trojan horses, worms, and vandals , malicious applications, etc., to other computers and\or to use or interfere with other computers in violation of the Computer Law.\nnot to send e-mail messages in a way that provokes complaints from the recipients.\nnot to include any material concerning minors and identifying them, their personal details or about them and the means of communication with them.\nDo not include passwords, usernames and other details, which allow the use of computer software, digital files, websites or services that require registration or payment, without such payment or registration.\nnot to include any material that could mislead a consumer, as defined in the Consumer Protection Law.\n- Do not refer to any link or give any other reference to material whose publication is prohibited according to this document.\n- To keep secret and\or not to disclose and\or not to transfer to another person or others, his personal passwords (if and as much as such are given to him by the company, including a username and login password) and\or the means of accessing the Internet, which will be given (if will be delivered) to her by the company, unless he has received the company\'s consent to this, in advance and in writing.\nA surfer who behaves contrary to any of his obligations as detailed above - their behavior, the content he uploaded - will be removed, and the company will be entitled, without prejudice to its other rights, to block him and prevent him from browsing the portal and consuming services through it. A surfer who has been removed by the company and\or denied entry will not be allowed to come back and surf even under a different username.\nThe surfer shall compensate and indemnify the company immediately upon receiving a demand to do so, for any damage and\or loss and\or loss and\or expense, of any kind and type, including legal expenses, which have been or will be caused to the company and\or any third party, and related directly or indirectly to the user\'s content that appears on the portal and any service therein, or related to the user\'s use of the portal and\or services, and this according to the company\'s first demand, and he fully, definitively, completely and irrevocably waives any claim or demand against the company in connection with said content , browsing the portal and using the aforementioned services.\nApplicable law and jurisdiction\nThe laws of the State of Israel will apply to the terms and everything arising from them or involving them, the terms will be interpreted according to them, and any dispute or legal question in connection with them will be brought to a decision in the competent judicial court in Tel Aviv-Jaffa only. For any question or request concerning the use of the portal, you can contact the company on the creation page link.</string>
+
+    <string-array name="keywords">
+        <item>Self-harm</item>
+        <item>Suicidal</item>
+        <item>die</item>
+
+        <item>Suicide</item>
+        <item>commit suicide</item>
+        <item>Unbearable pain</item>
+        <item>Feeling worthless</item>
+        <item>End of the road</item>
+        <item>It\'s all over</item>
+        <item>Danger</item>
+
+        <item>Death</item>
+        <item>I am in distress</item>
+        <item>Complete despair</item>
+        <item>To end it</item>
+        <item>Hurt myself</item>
+        <item>Don\'t want to live</item>
+
+        <item>Hopelessness</item>
+        <item>Mental exhaustion</item>
+        <item>Unbearable pain</item>
+        <item>See no way out</item>
+        <item>Severe depression</item>
+        <item>Can\'t cope anymore</item>
+        <item>Deep emotional pain</item>
+        <item>Internal pain</item>
+        <item>Nothing left for me</item>
+        <item>Everything is dark</item>
+        <item>No more light</item>
+        <item>I\'m in a very bad state</item>
+        <item>My situation is bad</item>
+
+        <item>Want to stop everything</item>
+        <item>Everything is meaningless</item>
+        <item>End of life</item>
+        <item>Planning to end it all</item>
+        <item>Want to end it</item>
+        <item>Preparing to say goodbye</item>
+        <item>Don\'t want to continue</item>
+        <item>Considering taking pills</item>
+        <item>End the pain</item>
+        <item>Make it stop</item>
+        <item>Want to disappear</item>
+        <item>Final solution</item>
+    </string-array>
+
+</resources>

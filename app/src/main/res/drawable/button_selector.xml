@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+<!--    chance color of button-->
+<!--    <item android:state_pressed="true">-->
+<!--        <shape android:shape="rectangle">-->
+<!--            <solid android:color="@drawable/backgroundbtn2"/>-->
+<!--            <corners android:radius="30dp"/>-->
+<!--        </shape>-->
+<!--    </item>-->
+
+
+<!--    <item android:state_pressed="false">-->
+<!--        <shape android:shape="rectangle">-->
+<!--            <solid android:color="#00000000"/>-->
+<!--            <corners android:radius="30dp"/>-->
+<!--        </shape>-->
+<!--    </item>-->
+</selector>

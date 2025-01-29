@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-feature
+        android:name="android.hardware.telephony"
+        android:required="false" />
+
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.USE_CREDENTIALS" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.SEND_SMS" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.BROADCAST_STICKY"/>
+
+    <queries>
+        <package android:name="com.whatsapp" />
+        <package android:name="com.google.android.gms" />
+    </queries>
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:hardwareAccelerated="true"
+        android:icon="@drawable/newlogo"
+        android:label="@string/app_name"
+        android:roundIcon="@drawable/newlogo"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Freud"
+        tools:targetApi="31">
+<!--        <activity-->
+<!--            android:name=".ui.theme.SelectAge"-->
+<!--            android:exported="false" />-->
+        <activity
+            android:name=".Update"
+            android:exported="false" />
+        <activity android:name=".SOSGuideActivity" />
+        <activity
+            android:name=".Chat"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".ForgetPassword"
+            android:exported="false" />
+        <activity
+            android:name=".Helplines"
+            android:exported="false" />
+        <activity
+            android:name=".Contact_us"
+            android:exported="false" /> <!-- <activity -->
+        <!-- android:name=".MainActivity2" -->
+        <!-- android:exported="false" -->
+        <!-- android:label="@string/title_activity_main2" -->
+        <!-- android:theme="@style/Theme.Freud" /> -->
+        <activity
+            android:name=".Personal_area"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".HomePage"
+            android:exported="false" />
+        <activity
+            android:name=".Security"
+            android:exported="false" />
+        <activity
+            android:name=".select_avatar"
+            android:exported="false" />
+        <activity
+            android:name=".Login"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".Register"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
+    </application>
+
+</manifest>

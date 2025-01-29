@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <!--    <Switch-->
+    <!--        android:id="@+id/languageSwitch"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:text="@string/swich"-->
+    <!--        android:fontFamily="@font/assistantregular"-->
+    <!--        android:textSize="15dp"-->
+    <!--        android:layout_gravity="bottom|left"-->
+    <!--        android:layout_marginLeft="5dp"-->
+    <!--        android:layout_marginTop="5dp"/>-->
+
+    <LinearLayout
+        android:id="@+id/languageOption"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_gravity="top|left"
+        android:layout_marginTop="5dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <!-- Button for Hebrew language option -->
+        <Button
+            android:id="@+id/languageHeText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:minWidth="0dp"
+            android:minHeight="0dp"
+            android:padding="5dp"
+            android:textSize="20dp"
+            android:layout_marginLeft="8dp"
+            android:fontFamily="@font/assistantregular"
+            android:text="@string/he"
+            android:textColor="#000000" />
+
+        <!-- Button for English language option -->
+        <Button
+            android:id="@+id/languageEnText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:minWidth="0dp"
+            android:minHeight="0dp"
+            android:textSize="20dp"
+            android:padding="5dp"
+            android:layout_marginLeft="10dp"
+            android:fontFamily="@font/assistantregular"
+            android:text="@string/en"
+            android:textColor="#000000" />
+    </LinearLayout>
+
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginTop="-30dp"
+        android:layout_marginBottom="5dp"
+        android:layout_weight="0.75"
+        android:src="@drawable/logohebrew" />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="1dp"
+        android:fontFamily="@font/assistantregular"
+        android:gravity="center"
+        android:text="@string/yuval"
+        android:textSize="23dp" />
+
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginBottom="10dp"
+        android:layout_weight="2.2"
+        android:src="@drawable/welcomeimg" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="3dp"
+        android:fontFamily="@font/assistantbold"
+        android:text="@string/welcome"
+        android:textColor="#8257E3"
+        android:textSize="40dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:fontFamily="@font/assistantregular"
+        android:gravity="center"
+        android:text="@string/welcomeText"
+        android:textSize="20dp" />
+
+    <Button
+        android:id="@+id/btnLogin"
+        android:layout_width="360dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="6dp"
+        android:layout_weight="0.35"
+        android:background="?android:attr/selectableItemBackground"
+        android:focusable="true"
+        android:fontFamily="@font/assistantregular"
+        android:foreground="@drawable/backgroundbtn2"
+        android:text="@string/login"
+        android:textColor="#8257E3"
+        android:textSize="17dp" />
+
+    <Button
+        android:id="@+id/btnRegister"
+        android:layout_width="360dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="6dp"
+        android:layout_weight="0.35"
+        android:background="#00000000"
+        android:focusable="true"
+        android:fontFamily="@font/assistantregular"
+        android:text="@string/register"
+        android:textColor="#8257E3"
+        android:textSize="17dp" />
+
+    <Button
+        android:id="@+id/btnGuest"
+        android:layout_width="360dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="16dp"
+        android:layout_weight="0.35"
+        android:background="#00000000"
+        android:focusable="true"
+        android:fontFamily="@font/assistantregular"
+        android:text="@string/guest"
+        android:textColor="#000000"
+        android:textSize="17dp" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="-15dp"
+        android:layout_gravity="bottom">
+
+        <TextView
+            android:id="@+id/linksAi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:layout_marginLeft="5dp"
+            android:fontFamily="@font/assistantregular"
+            android:text="@string/linksAi"
+            android:textSize="15dp" />
+
+        <TextView
+            android:id="@+id/version"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:layout_marginRight="5dp"
+            android:fontFamily="@font/assistantregular"
+            android:text="@string/version"
+            android:textSize="15dp" />
+    </FrameLayout>
+
+</LinearLayout>

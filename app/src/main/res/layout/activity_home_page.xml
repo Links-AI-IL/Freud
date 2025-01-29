@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:layoutDirection="rtl"
+    tools:context=".HomePage">
+
+    <FrameLayout
+        android:id="@+id/mainContent"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.2" />
+
+    <TextView
+        android:id="@+id/homeH"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right|center_vertical"
+        android:layout_marginRight="40dp"
+        android:layout_marginLeft="60dp"
+        android:textColor="#8257E3"
+        android:textSize="40dp"
+        android:textStyle="bold"
+        android:fontFamily="@font/assistantbold" />
+
+    <TextView
+        android:id="@+id/homeT"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right|center_vertical"
+        android:layout_marginRight="40dp"
+        android:layout_marginLeft="60dp"
+        android:text="@string/homeT"
+        android:fontFamily="@font/assistantregular"
+        android:textSize="18dp"
+        android:singleLine="true" />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layoutDirection="rtl"
+            android:layout_marginBottom="-6dp">
+
+            <ImageButton
+                android:id="@+id/action1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="-4dp"
+                android:layout_marginEnd="-4dp"
+                android:background="@android:color/transparent"
+                android:focusable="true"
+                android:src="@drawable/depression" />
+
+            <ImageButton
+                android:id="@+id/action2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="-4dp"
+                android:layout_marginEnd="-4dp"
+                android:background="@android:color/transparent"
+                android:focusable="true"
+                android:src="@drawable/boycott" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layoutDirection="rtl"
+            android:layout_marginBottom="-6dp">
+
+            <ImageButton
+                android:id="@+id/action3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="-4dp"
+                android:layout_marginEnd="-4dp"
+                android:background="@android:color/transparent"
+                android:focusable="true"
+                android:src="@drawable/anxieties" />
+
+            <ImageButton
+                android:id="@+id/action4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="-4dp"
+                android:layout_marginEnd="-4dp"
+                android:background="@android:color/transparent"
+                android:focusable="true"
+                android:src="@drawable/ptsd" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layoutDirection="rtl"
+            android:layout_marginBottom="-6dp">
+
+            <ImageButton
+                android:id="@+id/action5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="-4dp"
+                android:layout_marginEnd="-4dp"
+                android:background="@android:color/transparent"
+                android:focusable="true"
+                android:src="@drawable/selfconfidence" />
+
+            <ImageButton
+                android:id="@+id/action6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="-4dp"
+                android:layout_marginEnd="-4dp"
+                android:background="@android:color/transparent"
+                android:focusable="true"
+                android:src="@drawable/divorce" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layoutDirection="rtl"
+            android:layout_marginBottom="4dp">
+
+            <ImageButton
+                android:id="@+id/action7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="-4dp"
+                android:layout_marginEnd="-4dp"
+                android:background="@android:color/transparent"
+                android:focusable="true"
+                android:src="@drawable/october" />
+
+            <ImageButton
+                android:id="@+id/action8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="-4dp"
+                android:layout_marginEnd="-4dp"
+                android:background="@android:color/transparent"
+                android:focusable="true"
+                android:src="@drawable/familyproblems" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+
+    <FrameLayout
+        android:id="@+id/bottomNavFragment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>

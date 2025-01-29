@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    tools:context=".Security">
+
+    <!-- תיבת תמונה עליונה -->
+    <ImageView
+        android:id="@+id/imageLogo"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="0.5"
+        android:src="@drawable/logohebrew" />
+
+    <!-- תמונת רקע -->
+    <ImageView
+        android:id="@+id/imageSecurity"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1.2"
+        android:src="@drawable/security"
+        android:layout_marginTop="-30dp"/>
+
+    <!-- כותרת טקסט ראשית -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/securityH"
+        android:textColor="#8257E3"
+        android:textSize="40dp"
+        android:fontFamily="@font/assistantbold"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="-20dp"/>
+
+    <!-- טקסט משני -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/securityT"
+        android:textSize="20dp"
+        android:fontFamily="@font/assistantregular"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="40dp"/>
+
+
+
+    <!-- כפתור המשך בתחתית המסך -->
+    <Button
+        android:id="@+id/btnNextSecurity"
+        android:layout_width="360dp"
+        android:layout_height="0dp"
+        android:layout_weight="0.15"
+        android:text="@string/next"
+        android:textColor="#8257E3"
+        android:background="?android:attr/selectableItemBackground"
+        android:foreground="@drawable/backgroundbtn2"
+        android:fontFamily="@font/assistantregular"
+        android:textSize="17dp"
+        android:layout_gravity="center_horizontal|bottom"
+        android:layout_marginBottom="20dp"
+        android:focusable="true" />
+
+</LinearLayout>

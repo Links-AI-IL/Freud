@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    android:weightSum="1"
+    android:layoutDirection="rtl"
+    tools:context=".select_avatar">
+
+    <!-- מסגרת לתיבה ולכותרות, ליצירת הרקע המשותף -->
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="0.28"
+        android:layoutDirection="rtl">
+
+        <!-- תיבת תצוגה עם גראדיאנט מעוגל, שמשמש כרקע לטקסט -->
+        <View
+            android:id="@+id/avatarBox"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/rounded_background" />
+
+        <!-- כותרת טקסט ראשית, מעל ה-View, מוצמדת לימין -->
+        <TextView
+            android:id="@+id/avatarT"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/avatarH"
+            android:textColor="#8257E3"
+            android:textSize="40dp"
+            android:textStyle="bold"
+            android:fontFamily="@font/assistantbold"
+            android:layout_gravity="right|center_vertical"
+            android:layout_marginRight="25dp"
+            android:layout_marginTop="30dp"/>
+
+        <!-- כותרת טקסט משנית, מוצמדת לימין, גם היא מעל ה-View -->
+        <TextView
+            android:id="@+id/selectAvatar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/selectAvatar"
+            android:fontFamily="@font/assistantregular"
+            android:textSize="18dp"
+            android:layout_gravity="right|center_vertical"
+            android:layout_marginRight="25dp"
+            android:layout_marginTop="70dp"/>
+    </FrameLayout>
+
+    <!-- Grid עם כפתורי התמונות (שורת דמויות) -->
+
+    <!-- כפתור התחתון מוצמד לתחתית המסך -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.4"
+        android:layout_marginTop="22dp"
+        android:gravity="center_horizontal"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="4">
+
+            <ImageButton
+                android:id="@+id/avatar1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/avatar_background"
+                android:focusable="true"
+                android:src="@drawable/avt1" />
+
+            <ImageButton
+                android:id="@+id/avatar2"
+                android:layout_width="0dp"
+                android:layout_height="70dp"
+                android:layout_weight="1"
+                android:background="#00000000"
+                android:src="@drawable/avt2"
+                android:scaleType="fitCenter"
+                android:focusable="true" />
+
+            <ImageButton
+                android:id="@+id/avatar3"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="#00000000"
+                android:focusable="true"
+                android:src="@drawable/avt3" />
+
+            <ImageButton
+                android:id="@+id/avatar4"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="#00000000"
+                android:src="@drawable/avt4"
+                android:focusable="true"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:orientation="horizontal"
+            android:weightSum="4">
+
+            <ImageButton
+                android:id="@+id/avatar5"
+                android:layout_width="0dp"
+                android:layout_height="96dp"
+                android:layout_weight="1"
+                android:background="#00000000"
+                android:src="@drawable/avt5"
+                android:focusable="true"
+                android:scaleType="fitCenter"/>
+
+            <ImageButton
+                android:id="@+id/avatar6"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="#00000000"
+                android:focusable="true"
+                android:src="@drawable/avt6" />
+
+            <ImageButton
+                android:id="@+id/avatar7"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="#00000000"
+                android:focusable="true"
+                android:src="@drawable/avt7" />
+
+            <ImageButton
+                android:id="@+id/avatar8"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="#00000000"
+                android:focusable="true"
+                android:src="@drawable/avt8" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.33"
+        android:gravity="bottom|center_horizontal"
+        android:layout_gravity="bottom|center_horizontal">
+
+        <Button
+            android:id="@+id/btnNext"
+            android:layout_width="360dp"
+            android:layout_height="53dp"
+            android:text="@string/next"
+            android:textColor="#8257E3"
+            android:background="?android:attr/selectableItemBackground"
+            android:foreground="@drawable/backgroundbtn2"
+            android:fontFamily="@font/assistantregular"
+            android:textSize="17dp"
+            android:layout_gravity="center"
+            android:focusable="true"
+            android:layout_marginBottom="-55dp"/>
+    </LinearLayout>
+
+</LinearLayout>

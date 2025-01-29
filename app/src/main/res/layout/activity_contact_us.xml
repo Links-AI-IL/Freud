@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    tools:context=".Contact_us">
+
+    <!-- מסגרת לתיבה ולכותרות, ליצירת הרקע המשותף -->
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="0.28"
+        >
+
+        <!-- תיבת תצוגה עם גראדיאנט מעוגל, שמשמש כרקע לטקסט -->
+        <View
+            android:id="@+id/avatarBox"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/rounded_background" />
+
+        <!-- כותרת טקסט ראשית, מעל ה-View, מוצמדת לימין -->
+
+        <!-- כותרת טקסט משנית, מוצמדת לימין, גם היא מעל ה-View -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="60dp"
+            android:fontFamily="@font/assistantbold"
+            android:layout_marginStart="20dp"
+            android:text="@string/conectUsH"
+            android:textColor="#8257E3"
+            android:textSize="40dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/conectUsT"
+            android:fontFamily="@font/assistantregular"
+            android:textSize="18dp"
+            android:layout_gravity="right|center_vertical"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="50dp"
+            />
+    </FrameLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.67"
+        android:layout_marginTop="22dp"
+        android:gravity="center_horizontal"
+        android:orientation="vertical" >
+
+        <EditText
+            android:id="@+id/nameC"
+            android:layout_width="360dp"
+            android:layout_height="53dp"
+            android:hint="@string/fName"
+            android:inputType="text"
+            android:textSize="18dp"
+            android:padding="16dp"
+            android:gravity="right"
+            android:scrollbars="none"
+            android:fontFamily="@font/assistantregular"
+            android:background="@drawable/rounded_input_background"
+            android:layout_marginBottom="8dp"
+            android:layout_gravity="center"/>
+
+        <EditText
+            android:id="@+id/emailC"
+            android:layout_width="360dp"
+            android:layout_height="53dp"
+            android:hint="@string/email"
+            android:inputType="textEmailAddress"
+            android:padding="16dp"
+            android:textSize="18dp"
+            android:gravity="right"
+            android:scrollbars="none"
+            android:fontFamily="@font/assistantregular"
+            android:background="@drawable/rounded_input_background"
+            android:layout_marginBottom="8dp"
+            android:layout_gravity="center"/>
+
+        <EditText
+            android:id="@+id/messageC"
+            android:layout_width="360dp"
+            android:layout_height="110dp"
+            android:hint="@string/conectUsMT"
+            android:inputType="text"
+            android:textSize="18dp"
+            android:padding="16dp"
+            android:gravity="right"
+            android:scrollbars="none"
+            android:fontFamily="@font/assistantregular"
+            android:background="@drawable/rounded_input_background"
+            android:layout_marginBottom="30dp"
+            android:layout_gravity="center"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/conectUsT2"
+            android:textSize="20dp"
+            android:fontFamily="@font/assistantregular"
+            android:layout_gravity="right"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="25dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:weightSum="4"
+            android:layout_marginEnd="4dp"
+            android:layout_marginStart="4dp"> <!-- מחלקים את כל המרווח ל-4 חלקים -->
+
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:gravity="center">
+
+                <!-- כפתור בחירה ראשון -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:layout_gravity="center"
+                    android:layout_weight="1">
+
+                    <RadioButton
+                        android:id="@+id/feedback1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:focusable="true"
+                        android:layout_marginStart="10dp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/feedback1"
+                        android:fontFamily="@font/assistantregular"
+                        android:textSize="15dp"
+                        android:gravity="center"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="4dp" />
+                </LinearLayout>
+
+                <!-- כפתור בחירה שני -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"> <!-- חלק אחד מתוך 4 -->
+
+                    <RadioButton
+                        android:id="@+id/feedback2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:focusable="true"
+                        android:layout_marginStart="10dp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/feedback2"
+                        android:fontFamily="@font/assistantregular"
+                        android:textSize="15dp"
+                        android:gravity="center"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="4dp"/>
+                </LinearLayout>
+
+                <!-- כפתור בחירה שלישי -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"> <!-- חלק אחד מתוך 4 -->
+
+                    <RadioButton
+                        android:id="@+id/feedback3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:focusable="true"
+                        android:layout_marginStart="10dp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/feedback3"
+                        android:fontFamily="@font/assistantregular"
+                        android:textSize="15dp"
+                        android:gravity="center"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="4dp"/>
+                </LinearLayout>
+
+                <!-- כפתור בחירה רביעי -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:layout_marginStart="-8dp"> <!-- חלק אחד מתוך 4 -->
+
+                    <RadioButton
+                        android:id="@+id/feedback4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:focusable="true"
+                        android:layout_marginStart="10dp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/feedback4"
+                        android:fontFamily="@font/assistantregular"
+                        android:textSize="15dp"
+                        android:gravity="center"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="4dp"/>
+                </LinearLayout>
+
+            </RadioGroup>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_marginBottom="20dp">
+
+        <Button
+            android:id="@+id/btnSend"
+            android:layout_width="360dp"
+            android:layout_height="53dp"
+            android:text="@string/send"
+            android:textColor="#8257E3"
+            android:background="?android:attr/selectableItemBackground"
+            android:foreground="@drawable/backgroundbtn2"
+            android:fontFamily="@font/assistantregular"
+            android:textSize="17dp"
+            android:focusable="true"
+            android:layout_gravity="center" />
+    </LinearLayout>
+
+
+    <FrameLayout
+        android:id="@+id/bottomNavFragment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".BlankFragment"
+    android:background="#AA000000"
+    android:layoutDirection="rtl">
+
+    <Button
+        android:id="@+id/closeGuideButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/next"
+        android:textSize="16dp"
+        android:textColor="#FFFFFF"
+        android:background="#FFFFFF"
+        android:fontFamily="@font/assistantmedium"
+        android:layout_gravity="top|right"
+        android:focusable="true"
+        android:layout_marginTop="40dp"/>
+
+    <!-- עיגול שקוף לגמרי עם מסגרת מסביבו מעל כפתור ה-SOS -->
+    <View
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:background="@drawable/transparent_circle"
+        android:layout_gravity="bottom|right"
+        android:layout_marginRight="15dp"
+        android:layout_marginBottom="20dp" />
+
+    <!-- טקסט הסבר מעל כפתור ה-SOS -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="כפתור SOS"
+        android:textColor="#FFFFFF"
+        android:textSize="18dp"
+        android:fontFamily="@font/assistantbold"
+        android:layout_marginRight="40dp"
+        android:layout_marginTop="500dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="מאפשר שליחת הודעה במקרי חירום למספרי\n הטלפון שהוגדרו בתהליך ההרשמה"
+        android:textColor="#FFFFFF"
+        android:textSize="16dp"
+        android:fontFamily="@font/assistantregular"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="530dp" />
+
+    <!-- חץ המצביע על כפתור ה-SOS -->
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="100dp"
+        android:layout_gravity="bottom|right"
+        android:layout_marginRight="40dp"
+        android:layout_marginBottom="100dp"/>
+
+</FrameLayout>

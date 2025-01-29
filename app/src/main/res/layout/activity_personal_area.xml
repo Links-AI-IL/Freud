@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    tools:context=".Personal_area">
+
+    <!-- מסגרת לחלק העליון של המסך -->
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="0.4"
+        android:layout_marginBottom="5dp">
+
+        <!-- תיבת תצוגה עם גראדיאנט מעוגל, שמשמש כרקע לטקסט -->
+        <View
+            android:id="@+id/box"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/rounded_background" />
+
+        <!-- כותרת טקסט ראשית, מוצמדת לימין -->
+        <TextView
+            android:id="@+id/personalAreaH"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/personalAreaH"
+            android:textColor="#8257E3"
+            android:textSize="40dp"
+            android:fontFamily="@font/assistantbold"
+            android:layout_gravity="start|center_vertical"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="35dp"/>
+
+        <!-- כותרת טקסט משנית, מוצמדת לימין, גם היא מעל ה-View -->
+        <TextView
+            android:id="@+id/personalAreaT"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/personalAreaT"
+            android:fontFamily="@font/assistantregular"
+            android:textSize="18dp"
+            android:layout_gravity="start|center_vertical"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="75dp" />
+    </FrameLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="8dp">
+
+    <ImageButton
+        android:id="@+id/avatarP"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="0.13"
+        android:background="#00000000"
+        android:src="@drawable/logoblack"
+        android:layout_marginBottom="8dp"
+        android:focusable="true"
+        android:layout_gravity="center"/>
+
+    <EditText
+        android:id="@+id/updateN"
+        android:layout_width="360dp"
+        android:layout_height="53dp"
+        android:hint="@string/fName"
+        android:inputType="text"
+        android:padding="16dp"
+        android:gravity="right"
+        android:textSize="18dp"
+        android:fontFamily="@font/assistantregular"
+        android:background="@drawable/rounded_input_background"
+        android:layout_marginBottom="8dp"
+        android:scrollbars="none"
+        android:layout_gravity="center"/>
+
+
+    <EditText
+        android:id="@+id/updateP"
+        android:layout_width="360dp"
+        android:layout_height="53dp"
+        android:hint="@string/phone"
+        android:inputType="phone"
+        android:padding="16dp"
+        android:gravity="right"
+        android:maxLength="10"
+        android:textSize="18dp"
+        android:fontFamily="@font/assistantregular"
+        android:background="@drawable/rounded_input_background"
+        android:layout_marginBottom="8dp"
+        android:scrollbars="none"
+        android:layout_gravity="center"/>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/password"
+                android:layout_width="360dp"
+                android:layout_height="53dp"
+                android:layout_marginBottom="8dp"
+                app:passwordToggleEnabled="true"
+                app:passwordToggleTint="@color/black"
+                android:gravity="center_vertical"
+                android:layoutDirection="rtl"
+                app:hintEnabled="false"
+                android:layout_gravity="center" >
+
+    <EditText
+        android:id="@+id/updatePsw"
+        android:layout_width="360dp"
+        android:layout_height="53dp"
+        android:background="@drawable/rounded_input_background"
+        android:hint="@string/password"
+        android:inputType="textPassword"
+        android:fontFamily="@font/assistantregular"
+        android:gravity="right"
+        android:maxLines="1"
+        android:textSize="18dp"
+        android:padding="16dp"
+        android:scrollbars="none"
+        android:layout_gravity="center"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+<!--            <EditText-->
+<!--                android:id="@+id/inputAge"-->
+<!--                android:layout_width="360dp"-->
+<!--                android:layout_height="53dp"-->
+<!--                android:layout_gravity="center"-->
+<!--                android:layout_marginBottom="20dp"-->
+<!--                android:gravity="right"-->
+<!--                android:digits="0123456789"-->
+<!--                android:fontFamily="@font/assistantregular"-->
+<!--                android:background="@drawable/rounded_input_background"-->
+<!--                android:hint="@string/age"-->
+<!--                android:inputType="number"-->
+<!--                android:maxLines="1"-->
+<!--                android:imeOptions="actionDone"-->
+<!--                android:padding="16dp"-->
+<!--                android:scrollbars="none"-->
+<!--                android:singleLine="true"-->
+<!--                android:textSize="18dp" />-->
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/sosPhones"
+        android:textSize="16dp"
+        android:fontFamily="@font/assistantregular"
+        android:layout_gravity="right"
+        android:layout_marginLeft="180dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginBottom="8dp" />
+
+    <EditText
+        android:id="@+id/updatePsos1"
+        android:layout_width="360dp"
+        android:layout_height="53dp"
+        android:hint="@string/phone1sos"
+        android:inputType="phone"
+        android:digits="0123456789"
+        android:maxLength="10"
+        android:padding="16dp"
+        android:textSize="18dp"
+        android:scrollbars="none"
+        android:gravity="right"
+        android:fontFamily="@font/assistantregular"
+        android:background="@drawable/rounded_input_background"
+        android:layout_marginBottom="8dp"
+        android:layout_gravity="center"/>
+
+    <EditText
+        android:id="@+id/updatePsos2"
+        android:layout_width="360dp"
+        android:layout_height="53dp"
+        android:hint="@string/phone2sos"
+        android:inputType="phone"
+        android:digits="0123456789"
+        android:maxLength="10"
+        android:padding="16dp"
+        android:textSize="18dp"
+        android:gravity="right"
+        android:scrollbars="none"
+        android:fontFamily="@font/assistantregular"
+        android:background="@drawable/rounded_input_background"
+        android:layout_marginBottom="8dp"
+        android:layout_gravity="center"/>
+
+    <EditText
+        android:id="@+id/updatePsos3"
+        android:layout_width="360dp"
+        android:layout_height="53dp"
+        android:hint="@string/phone3sos"
+        android:inputType="phone"
+        android:digits="0123456789"
+        android:maxLength="10"
+        android:padding="16dp"
+        android:textSize="18dp"
+        android:scrollbars="none"
+        android:gravity="right"
+        android:fontFamily="@font/assistantregular"
+        android:background="@drawable/rounded_input_background"
+        android:layout_marginBottom="8dp"
+        android:layout_gravity="center"/>
+
+        </LinearLayout>
+    </ScrollView>
+
+    <Button
+        android:id="@+id/btnNext"
+        android:layout_width="360dp"
+        android:layout_height="53dp"
+        android:text="@string/save"
+        android:textColor="#8257E3"
+        android:background="?android:attr/selectableItemBackground"
+        android:foreground="@drawable/backgroundbtn2"
+        android:fontFamily="@font/assistantregular"
+        android:textSize="17dp"
+        android:layout_gravity="center"
+        android:focusable="true"
+        android:layout_marginBottom="25dp"
+        android:layout_marginTop="8dp"/>
+
+
+
+
+
+    <!-- רווח נוסף אם נדרש -->
+<!--    <Space-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="0dp"-->
+<!--        android:layout_weight="0.1" />-->
+
+    <!-- שורת כפתורים בתחתית המסך -->
+<!--    <LinearLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:orientation="horizontal"-->
+<!--        android:gravity="bottom"-->
+<!--        android:layout_marginBottom="10dp">-->
+
+<!--        <ImageButton-->
+<!--            android:id="@+id/rulerSos"-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_weight="1"-->
+<!--            android:background="@android:color/transparent"-->
+<!--            android:src="@drawable/sos" />-->
+
+<!--        <ImageButton-->
+<!--            android:id="@+id/rulerPhone"-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_weight="1"-->
+<!--            android:background="@android:color/transparent"-->
+<!--            android:src="@drawable/phone" />-->
+
+<!--        <ImageButton-->
+<!--            android:id="@+id/rulerH"-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_weight="1"-->
+<!--            android:background="@android:color/transparent"-->
+<!--            android:src="@drawable/home" />-->
+
+<!--        <ImageButton-->
+<!--            android:id="@+id/rulerPersonalA"-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_weight="1"-->
+<!--            android:background="@android:color/transparent"-->
+<!--            android:src="@drawable/personalareap" />-->
+
+<!--        <ImageButton-->
+<!--            android:id="@+id/rulerC"-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_weight="1"-->
+<!--            android:background="@android:color/transparent"-->
+<!--            android:src="@drawable/chat" />-->
+
+<!--    </LinearLayout>-->
+
+</LinearLayout>

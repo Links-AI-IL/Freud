@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="15dp"
+    android:background="@drawable/dialog_background"
+    android:layout_gravity="center">
+
+
+
+    <TextView
+        android:id="@+id/messageText"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:text="@string/enterAge"
+        android:textSize="27dp"
+        android:gravity="center"
+        android:fontFamily="@font/assistantmedium"
+        android:layout_marginTop="16dp"
+        android:layout_gravity="center_horizontal" />
+
+    <ImageButton
+        android:id="@+id/age3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        android:focusable="true"
+        android:layout_marginTop="16dp"
+        android:layout_gravity="center"
+        android:src="@drawable/age3" />
+
+    <ImageButton
+        android:id="@+id/age_yung"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        android:focusable="true"
+        android:layout_marginTop="5dp"
+        android:layout_gravity="center"
+        android:src="@drawable/age_yung" />
+
+    <ImageButton
+        android:id="@+id/age_other"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        android:focusable="true"
+        android:layout_marginTop="5dp"
+        android:layout_gravity="center"
+        android:src="@drawable/age_other2" />
+
+<!--    <NumberPicker-->
+<!--        android:id="@+id/agePicker"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_gravity="center" />-->
+
+<!--    <Button-->
+<!--        android:id="@+id/btnConfirm"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="@string/save"-->
+<!--        android:textSize="17dp"-->
+<!--        android:layout_marginTop="8dp"-->
+<!--        android:fontFamily="@font/assistantregular" />-->
+
+
+</LinearLayout>
