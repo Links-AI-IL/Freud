@@ -40,6 +40,9 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Locale;
 
+import com.google.firebase.auth.FirebaseUser;
+import com.links.freud.backend.ClaudeContextManager;
+import com.links.freud.backend.LinksApi;
 import com.links.freud.ui.theme.GetLocation;
 
 import com.google.android.gms.location.FusedLocationProviderClient;
@@ -52,9 +55,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import org.apache.commons.logging.LogFactory;
-
-import okhttp3.Response;
-import retrofit2.Call;
+import org.json.JSONException;
 
 public class Chat extends AppCompatActivity {
 
@@ -120,6 +121,19 @@ public class Chat extends AppCompatActivity {
 
     private ChatManager chatManager;
 
+    // region Members Backend
+
+    private static ClaudeContextManager _contextManager;
+
+    private LinksApi _linksApi;
+
+    private String _currAnswer = "";
+
+    private Handler _handler = new Handler();
+    private Runnable _typingRunnable;
+
+    // endregion
+
     @SuppressLint("ClickableViewAccessibility")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -159,30 +173,69 @@ public class Chat extends AppCompatActivity {
 
         _recyclerView.setAdapter(_adapter);
 
+        _recyclerView.setItemAnimator(null);
+
         mAuth = FirebaseAuth.getInstance();
 
         mDatabase = FirebaseDatabase.getInstance().getReference("Users");
 
-        if (!mAuth.getCurrentUser().isAnonymous() && mAuth.getCurrentUser() != null) {
+        _contextManager = new ClaudeContextManager();
 
+        if (!mAuth.getCurrentUser().isAnonymous() && mAuth.getCurrentUser() != null) {
             String userId = mAuth.getCurrentUser().getUid();
 
-            fetchAvatar(userId, gender -> {
-                if (gender != null) {
-                    userG = gender;
+            Log.d("shanii", "g");
+            Log.d("shanii", userId);
 
-                } else {
+            fetchAvatar(userId, gender -> {
+                Log.d("shanii", "g1");
+
+                if (gender != null) {
+                    Log.d("shanii", "g2");
+
+                    userG = gender;
+                }
+                else {
+
+                    Log.d("shanii", "g3");
+
                     userG = "unknown";
                 }
-
-//                handleIncomingMessage();
             });
 
-            userN = mDatabase.child(mAuth.getCurrentUser().getDisplayName()).toString();
-        } else {
+            if (mAuth.getCurrentUser() != null) {
+                mDatabase = FirebaseDatabase.getInstance().getReference("Users");
+
+                FirebaseUser user = mAuth.getCurrentUser();
+                userId = user.getUid();
+
+                String displayName = user.getDisplayName();
+
+                if (displayName != null && !displayName.isEmpty()) {
+                    userN = displayName;
+                }
+                else {
+                    userN = "Dear user";
+                }
+
+                if (displayName == null || displayName.isEmpty()) {
+                    displayName = user.getEmail();
+                }
+
+                userN = displayName != null ? displayName : "Dear user";
+            }
+
+            else {
+                userN = "Dear user";
+                userG = "unknown";
+            }
+
+        }
+
+        else {
+            userN = "Dear user";
+            userG = "unknown";
             Toast.makeText(Chat.this, getString(R.string.TAnonimusC), Toast.LENGTH_SHORT).show();
-            // Directly handle incoming message for anonymous users
-//             handleIncomingMessage();
         }
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
@@ -313,60 +366,7 @@ public class Chat extends AppCompatActivity {
             }
         });
 
-        LinearLayout editTextContainer = findViewById(R.id.currQuestion);
-        final View rootLayout = findViewById(R.id.main);
-        final RecyclerView _recyclerView = findViewById(R.id.recyclerView);
-
-        rootLayout.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
-            private int lastKeypadHeight = 0;
-
-            @Override
-            public void onGlobalLayout() {
-                Rect r = new Rect();
-                rootLayout.getWindowVisibleDisplayFrame(r);
-                int screenHeight = rootLayout.getRootView().getHeight();
-                int keypadHeight = screenHeight - r.bottom;
-
-                if (keypadHeight != lastKeypadHeight) {
-                    lastKeypadHeight = keypadHeight;
-
-                    if (keypadHeight > screenHeight * 0.15) {
-                        int[] location = new int[2];
-                        editTextContainer.getLocationOnScreen(location);
-                        int containerY = location[1];
-                        int distanceToMove = containerY - r.bottom + editTextContainer.getHeight();
-
-                        if (distanceToMove > 0) {
-                            editTextContainer.setTranslationY(-distanceToMove);
-
-                            if (!_questionResponseList.isEmpty()) {
-                                ViewGroup.LayoutParams recyclerParams = _recyclerView.getLayoutParams();
-                                if (recyclerParams instanceof ViewGroup.MarginLayoutParams) {
-                                    float marginReductionFactor = 0.7f;
-                                    int exactMargin = (int) ((keypadHeight - editTextContainer.getHeight()) * marginReductionFactor);
-                                    ((ViewGroup.MarginLayoutParams) recyclerParams).bottomMargin = Math.max(0, exactMargin);
-                                    _recyclerView.setLayoutParams(recyclerParams);
-                                }
-
-                                _recyclerView.post(() -> {
-                                    _recyclerView.smoothScrollToPosition(_recyclerView.getAdapter().getItemCount() - 1);
-                                });
-                            }
-                        }
-                    } else {
-                        editTextContainer.setTranslationY(0);
-
-                        if (!_questionResponseList.isEmpty()) {
-                            ViewGroup.LayoutParams recyclerParams = _recyclerView.getLayoutParams();
-                            if (recyclerParams instanceof ViewGroup.MarginLayoutParams) {
-                                ((ViewGroup.MarginLayoutParams) recyclerParams).bottomMargin = 0;
-                                _recyclerView.setLayoutParams(recyclerParams);
-                            }
-                        }
-                    }
-                }
-            }
-        });
+        moveKeyboard();
 
         BottomNavigationFragment bottomNavFragment = new BottomNavigationFragment();
         getSupportFragmentManager().beginTransaction()
@@ -397,107 +397,286 @@ public class Chat extends AppCompatActivity {
 
         chatManager = new ChatManager(this, fullPrompt);
 
-        handleIncomingMessage();
+        sendM.setOnClickListener(v -> sendMessage(v));
 
-        sendM.setOnClickListener(view -> {
-
-            long startTime = System.currentTimeMillis();
-
-            if (_adapter != null) {
-                _adapter.stopTextToSpeech();
-            }
-            String query = input.getText().toString().trim();
-            if (!query.isEmpty()) {
-
-                QuestionResponse newQuestionResponse = new QuestionResponse(query, "");
-                _questionResponseList.add(newQuestionResponse);
-                _adapter.notifyItemInserted(_questionResponseList.size() - 1);
-
-                _recyclerView.post(() -> {
-
-                    _adapter.setQuestion(false);
-
-                    _recyclerView.smoothScrollToPosition(_questionResponseList.size() - 1);
-                    updateRecyclerViewPosition();
-                });
-
-                showDialog(query, view);
-
-                newQuestionResponse.setResponse(getString(R.string.typing));
-
-                _adapter.setLoading(true);
-
-                Handler handler = new Handler();
-                Runnable typingRunnable = new Runnable() {
-                    int dotCount = 0;
-
-                    @Override
-                    public void run() {
-                        String messageText = getString(R.string.typing);
-                        StringBuilder builder = new StringBuilder(messageText);
-
-                        for (int i = 0; i < dotCount; i++) {
-                            builder.append(" . ");
-                        }
-
-                        int lastPosition = _questionResponseList.size() - 1;
-                        if (lastPosition >= 0) {
-                            _questionResponseList.get(lastPosition).setResponse(builder.toString());
-                            _adapter.notifyItemChanged(lastPosition);
-                        }
-
-                        dotCount = (dotCount + 1) % 4;
-
-                        handler.postDelayed(this, 300);
-                    }
-                };
-
-                handler.post(typingRunnable);
-
-                chatManager.sendMessage(query, new Callback<String>() {
+        _linksApi = new LinksApi(
+                input.getText().toString(),
+                new LinksApi.ChunkCallback() {
                     @Override
                     public void onResponse(String message) {
-                        if (message == null || message.isEmpty()) {
+                        // Update the UI with the chunk response
+                        runOnUiThread(() -> {
                             _adapter.setLoading(false);
 
-                            Toast.makeText(Chat.this, "קיבלנו תשובה ריקה מהשרת - נסה שוב", Toast.LENGTH_SHORT).show();
-                            return;
-                        }
+                            _adapter.setLoadingFull(false);
 
-                        if (_adapter != null) {
-                            _adapter.stopTextToSpeech();
-                        }
-
-                        _adapter.setLoading(false);
-                        handler.removeCallbacks(typingRunnable);
-
-                        long endTime = System.currentTimeMillis();
-                        long responseTime = endTime - startTime;
-
-                        Log.d("response time", String.valueOf(responseTime));
-
-                        if (message != null) {
-
-                            int lastPosition = _questionResponseList.size() - 1;
-                            if (lastPosition >= 0) {
-                                _questionResponseList.get(lastPosition).setResponse(message);
-                                _adapter.notifyItemChanged(lastPosition);
+                            if (_handler != null) {
+                                _handler.removeCallbacks(_typingRunnable);
                             }
-                        }
+
+                            updateResponse(message);
+                        });
                     }
 
                     @Override
-                    public void onFailure(@Nullable Exception e) {
-                        Toast.makeText(Chat.this, "Error: Unable to get response.", Toast.LENGTH_SHORT).show();
+                    public void onError(String error) {
+                        // Handle chunk response error
+                        runOnUiThread(() -> {
+                            Toast.makeText(Chat.this, "Error receiving chunk: " + error, Toast.LENGTH_SHORT).show();
+                            Log.e("ChunkError", error);
+                        });
                     }
-                });
-                input.setText("");
+                },
 
-            } else {
-                Toast.makeText(Chat.this, "Please enter your query.", Toast.LENGTH_SHORT).show();
+                new LinksApi.FullResponseCallback() {
+                    @Override
+                    public void onResponse(String message) {
+                        // Handle the full response
+                        runOnUiThread(() -> {
+                            _adapter.setLoadingFull(true);
+
+                            if (_handler != null) {
+                                _handler.removeCallbacks(_typingRunnable);
+                            }
+
+                            setFinalResponse(message);
+                        });
+                    }
+
+                    @Override
+                    public void onError(String error) {
+                        // Handle full response error
+                        runOnUiThread(() -> {
+                            Toast.makeText(Chat.this, "Error receiving full response: " + error, Toast.LENGTH_SHORT).show();
+                            Log.e("FullResponseError", error);
+                        });
+                    }
+                }
+        );
+
+        handleIncomingMessage();
+
+    }
+
+    // region Backend
+
+    private void handleIncomingMessage() {
+        String message = getIntent().getStringExtra("message");
+
+        if (message != null && !message.isEmpty()) {
+            input.setText(message);
+            String query = input.getText().toString().trim();
+
+            if (!query.isEmpty()) {
+                addNewQuestionResponse(query, "");
+
+                _adapter.setLoading(true);
+                _adapter.setQuestion(true);
+
+                _handler = new Handler();
+                _typingRunnable = typing();
+                _handler.post(_typingRunnable);
+
+                // Fetch gender first before sending the message
+                fetchAvatar(mAuth.getCurrentUser().getUid(), gender -> {
+                    Log.d("ChatActivity", "Gender fetched: " + gender);
+                    userG = gender != null ? gender : "unknown"; // Default to "unknown" if null
+
+                    // Now that gender is fetched, send the message
+                    sendToClaude(query, "text");
+                });
+            }
+        }
+    }
+
+
+    private void sendMessage(View view) {
+        String query = input.getText().toString().trim();
+
+        if (query.isEmpty()) {
+            Toast.makeText(this, "Please enter your query.", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        showDialog(query, view);
+
+        addNewQuestionResponse(query, getString(R.string.typing));
+
+        _adapter.setLoadingFull(false);
+
+        _adapter.setQuestion(false);
+
+        _handler = new Handler();
+        _typingRunnable = typing();
+        _handler.post(_typingRunnable);
+
+        sendToClaude(query, "text");
+    }
+
+    private Runnable typing() {
+        return new Runnable() {
+            int dotCount = 0;
+
+            @Override
+            public void run() {
+                String messageText = getString(R.string.typing);
+                StringBuilder builder = new StringBuilder(messageText);
+
+                for (int i = 0; i < dotCount; i++) {
+                    builder.append(" . ");
+                }
+
+                int lastPosition = _questionResponseList.size() - 1;
+                if (lastPosition >= 0) {
+                    _questionResponseList.get(lastPosition).setResponse(builder.toString());
+                    _adapter.notifyItemChanged(lastPosition);
+                }
+
+                dotCount = (dotCount + 1) % 4;
+
+                _handler.postDelayed(this, 300);
+            }
+        };
+    }
+
+    private void sendToClaude(String text, String type) {
+        if ((text == null || text.trim().isEmpty()) && type == null) {
+            Toast.makeText(Chat.this, "Please enter some text or provide an image to send.", Toast.LENGTH_SHORT).show();
+            Log.e("sendToClaude", "Attempted to send an empty query and no image.");
+            return;
+        }
+
+        _adapter.setLoading(true);
+
+        String finalText = _contextManager.buildPrompt(text);
+
+        long startTime = System.currentTimeMillis();
+
+        try {
+            _linksApi.sendMessage(finalText, userN, userG, lastLanguage, type);
+        } catch (JSONException e) {
+            Log.e("ClaudeApi", "JSONException: " + e.getMessage());
+            Toast.makeText(Chat.this, "Failed to send message: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+            _adapter.setLoading(false);
+        }
+
+        // Clear the text field
+        if (input != null) {
+            input.setText("");
+        }
+    }
+
+    private void addNewQuestionResponse(String question, String response) {
+        _questionResponseList.add(new QuestionResponse(question, response));
+        _adapter.notifyItemInserted(_questionResponseList.size() - 1);
+        _recyclerView.post(() -> _recyclerView.smoothScrollToPosition(_questionResponseList.size() - 1));
+    }
+
+    private void updateResponse(String chunk) {
+        int lastPosition = _questionResponseList.size() - 1;
+        if (lastPosition < 0) return;
+
+        _currAnswer += chunk;
+        _questionResponseList.get(lastPosition).setResponse(_currAnswer);
+
+        RecyclerView.ViewHolder vh = _recyclerView.findViewHolderForAdapterPosition(lastPosition);
+        if (vh instanceof QuestionResponseAdapter.ViewHolder) {
+            QuestionResponseAdapter.ViewHolder holder = (QuestionResponseAdapter.ViewHolder) vh;
+
+            holder.typeText(chunk, () -> holder.itemView.post(() -> scrollToItemBottom(lastPosition)));
+        }
+    }
+
+    private void setFinalResponse(String finalResponse) {
+        _currAnswer = "";
+    }
+
+    private void scrollToItemBottom(int position) {
+        RecyclerView.ViewHolder vh = _recyclerView.findViewHolderForAdapterPosition(position);
+        if (vh == null) return;
+
+        if (!(vh instanceof QuestionResponseAdapter.ViewHolder)) return;
+
+        QuestionResponseAdapter.ViewHolder holder = (QuestionResponseAdapter.ViewHolder) vh;
+
+        holder.itemView.post(() -> {
+            int rvHeight = _recyclerView.getHeight();
+            int itemTop = holder.itemView.getTop();
+            int itemHeight = holder.itemView.getHeight();
+            int itemAbsoluteBottom = itemTop + itemHeight;
+            int scrollAmount = itemAbsoluteBottom - rvHeight;
+
+            if (scrollAmount > 0) {
+                _recyclerView.smoothScrollBy(0, scrollAmount);
+            }
+
+        });
+    }
+
+    private void moveKeyboard() {
+        LinearLayout editTextContainer = findViewById(R.id.currQuestion);
+        final View rootLayout = findViewById(R.id.main);
+
+        rootLayout.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
+            private int lastKeypadHeight = 0;
+
+            @Override
+            public void onGlobalLayout() {
+                Rect r = new Rect();
+                rootLayout.getWindowVisibleDisplayFrame(r);
+
+                int screenHeight = rootLayout.getRootView().getHeight();
+                int keypadHeight = screenHeight - r.bottom;
+
+                // Only update layout if the keyboard state changes
+                if (keypadHeight != lastKeypadHeight) {
+                    lastKeypadHeight = keypadHeight;
+
+                    if (keypadHeight > screenHeight * 0.15) {
+                        // Keyboard is open
+                        Log.d("shani", "Keyboard open: moving container up");
+
+                        int[] location = new int[2];
+                        editTextContainer.getLocationOnScreen(location);
+
+                        int containerY = location[1];
+                        int distanceToMove = containerY - r.bottom + editTextContainer.getHeight();
+
+                        if (distanceToMove > 0) {
+                            editTextContainer.setTranslationY(-distanceToMove);
+                            adjustRecyclerViewMargin(keypadHeight, editTextContainer.getHeight());
+                        }
+                    } else {
+                        // Keyboard is closed
+                        Log.d("shani", "Keyboard closed: resetting container position");
+
+                        editTextContainer.setTranslationY(0);
+                        resetRecyclerViewMargin();
+                    }
+                }
             }
         });
     }
+
+    private void adjustRecyclerViewMargin(int keypadHeight, int containerHeight) {
+        ViewGroup.LayoutParams recyclerParams = _recyclerView.getLayoutParams();
+        if (recyclerParams instanceof ViewGroup.MarginLayoutParams) {
+            float marginReductionFactor = 0.7f;
+            int exactMargin = (int) ((keypadHeight - containerHeight) * marginReductionFactor);
+            ((ViewGroup.MarginLayoutParams) recyclerParams).bottomMargin = Math.max(0, exactMargin);
+            _recyclerView.setLayoutParams(recyclerParams);
+        }
+    }
+
+    private void resetRecyclerViewMargin() {
+        ViewGroup.LayoutParams recyclerParams = _recyclerView.getLayoutParams();
+        if (recyclerParams instanceof ViewGroup.MarginLayoutParams) {
+            ((ViewGroup.MarginLayoutParams) recyclerParams).bottomMargin = 0;
+            _recyclerView.setLayoutParams(recyclerParams);
+        }
+    }
+
+    // endregion
 
     @Override
     protected void onStart() {
@@ -615,7 +794,11 @@ public class Chat extends AppCompatActivity {
         mDatabase.child(userId).child("gender").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
+                Log.d("shanii" , "tryyww");
+
                 if (dataSnapshot.exists()) {
+                    Log.d("shanii" , "tryy3");
+
                     userG = dataSnapshot.getValue(String.class);
                     Log.d("shneor3", "User gender: " + userG);
 
@@ -665,98 +848,6 @@ public class Chat extends AppCompatActivity {
             _adapter.shutdownTextToSpeech();
         }
         super.onDestroy();
-    }
-
-    private void handleIncomingMessage() {
-
-        String message = getIntent().getStringExtra("message");
-        if (message != null && !message.isEmpty()) {
-            input.setText(message);
-
-            String query = input.getText().toString().trim();
-            if (!query.isEmpty()) {
-                // Add a new question to the list
-                QuestionResponse newQuestionResponse = new QuestionResponse(query, "");
-                _questionResponseList.add(newQuestionResponse);
-                _adapter.notifyItemInserted(_questionResponseList.size() - 1);
-                _recyclerView.scrollToPosition(_questionResponseList.size() - 1);
-
-                newQuestionResponse.setResponse(getString(R.string.typing));
-
-                _adapter.setLoading(true);
-                _adapter.setQuestion(true);
-
-                // Start typing animation
-                Handler handler = new Handler();
-                Runnable typingRunnable = new Runnable() {
-                    int dotCount = 0;
-
-                    @Override
-                    public void run() {
-                        String messageText = getString(R.string.typing); // "מקלידה"
-                        StringBuilder builder = new StringBuilder(messageText);
-
-                        // Add dots
-                        for (int i = 0; i < dotCount; i++) {
-                            builder.append(" . ");
-                        }
-
-                        // Update the TextView with the new text
-                        int lastPosition = _questionResponseList.size() - 1;
-                        if (lastPosition >= 0) {
-                            _questionResponseList.get(lastPosition).setResponse(builder.toString());
-                            _adapter.notifyItemChanged(lastPosition); // Ensure UI is updated
-                        }
-
-                        // Update dot count (0 to 3 dots)
-                        dotCount = (dotCount + 1) % 4;
-
-                        // Repeat every 1 second
-                        handler.postDelayed(this, 300);
-                    }
-                };
-
-                handler.post(typingRunnable);
-
-                chatManager.sendMessage(query, new Callback<String>() {
-                    @Override
-                    public void onResponse(String message) {
-                        if (message == null || message.isEmpty()) {
-                            _adapter.setLoading(false);
-
-                            Toast.makeText(Chat.this, "קיבלנו תשובה ריקה מהשרת - נסה שוב", Toast.LENGTH_SHORT).show();
-                            return;
-                        }
-
-                        if (_adapter != null) {
-                            _adapter.stopTextToSpeech();
-                        }
-
-                        _adapter.setLoading(false);
-                        handler.removeCallbacks(typingRunnable);
-
-
-                        if (message != null) {
-
-
-                            int lastPosition = _questionResponseList.size() - 1;
-                            if (lastPosition >= 0) {
-                                _questionResponseList.get(lastPosition).setResponse(message);
-                                _adapter.notifyItemChanged(lastPosition);
-                            }
-                        }
-                    }
-
-                    @Override
-                    public void onFailure(@Nullable Exception e) {
-                        Toast.makeText(Chat.this, "Error: Unable to get response.", Toast.LENGTH_SHORT).show();
-                    }
-                });
-
-                // Clear the input field
-                input.setText("");
-            }
-        }
     }
 
 }

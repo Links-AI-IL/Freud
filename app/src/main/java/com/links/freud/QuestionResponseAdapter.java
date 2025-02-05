@@ -7,6 +7,8 @@ import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.Handler;
+import android.os.Looper;
 import android.speech.tts.TextToSpeech;
 import android.speech.tts.Voice;
 import android.util.Log;
@@ -56,6 +58,10 @@ public class QuestionResponseAdapter extends RecyclerView.Adapter<QuestionRespon
 
     private boolean isOld;
 
+    private boolean isLoadingFull = false;
+
+    private int _streamingPosition  = RecyclerView.NO_POSITION;
+
     public QuestionResponseAdapter(List<QuestionResponse> questionResponseList, Context context, boolean isOld) {
         this.questionResponseList = questionResponseList;
         this.isOld = isOld;
@@ -85,6 +91,14 @@ public class QuestionResponseAdapter extends RecyclerView.Adapter<QuestionRespon
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+        QuestionResponse item = questionResponseList.get(position);
+
+        if (position == _streamingPosition) {
+            holder.bindStreaming(item);
+        }
+        else {
+            holder.bindNormal(item);
+        }
 
         QuestionResponse questionResponse = questionResponseList.get(position);
 
@@ -108,18 +122,19 @@ public class QuestionResponseAdapter extends RecyclerView.Adapter<QuestionRespon
             holder.responseText.setTextSize(18f);
         }
 
+        if (isLoadingFull) {
+            holder.responseBtns.setVisibility(View.VISIBLE);
+        }
+
         if (isLoading && position == questionResponseList.size() - 1) {
 
             holder.questionContainer.setVisibility(View.GONE);
-            holder.heartProgressBar.setVisibility(View.VISIBLE);
             holder.responseBtns.setVisibility(View.GONE);
             holder.responseIcon.setVisibility(View.VISIBLE);
             holder.responseText.setVisibility(View.VISIBLE);
 
         } else {
-            holder.heartProgressBar.setVisibility(View.GONE);
             holder.responseIcon.setVisibility(View.VISIBLE);
-            holder.responseBtns.setVisibility(View.VISIBLE);
         }
 
         if (isCube && (questionResponseList.size() - 1 == position)) {
@@ -169,6 +184,11 @@ public class QuestionResponseAdapter extends RecyclerView.Adapter<QuestionRespon
         notifyItemChanged(questionResponseList.size() - 1);
     }
 
+    public void setLoadingFull(boolean loading) {
+        this.isLoadingFull = loading;
+        notifyItemChanged(questionResponseList.size() - 1);
+    }
+
     public void setQuestion(boolean cube) {
         this.isCube = cube;
     }
@@ -203,7 +223,8 @@ public class QuestionResponseAdapter extends RecyclerView.Adapter<QuestionRespon
         ImageView requestIcon, responseIcon;
         ImageButton helplinesBtn, copyBtn, readMe;
         ProgressBar progressBar;
-        ImageView heartProgressBar;
+
+        private final Handler handler = new Handler(Looper.getMainLooper());
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -216,14 +237,36 @@ public class QuestionResponseAdapter extends RecyclerView.Adapter<QuestionRespon
             helplinesBtn = itemView.findViewById(R.id.helplinesBtn);
             copyBtn = itemView.findViewById(R.id.copyBtn);
             readMe = itemView.findViewById(R.id.readMe);
-            progressBar = itemView.findViewById(R.id.progress_bar);
-
-            heartProgressBar = itemView.findViewById(R.id.heartProgressBar);
-            Glide.with(itemView.getContext())
-                    .asGif()
-                    .load(R.drawable.progres_red)
-                    .into(heartProgressBar);
         }
+
+        public void bindNormal(QuestionResponse item) {
+            responseText.setText(item.getResponse());
+        }
+
+        public void bindStreaming(QuestionResponse item) {
+            responseText.setText(item.getResponse());
+        }
+
+        public void typeText(String chunk, Runnable onCharAppended) {
+            typeTextRecursive(0, chunk, onCharAppended);
+        }
+
+        private void typeTextRecursive(int index, String chunk, Runnable onCharAppended) {
+            if (index >= chunk.length()) {
+                return;
+            }
+
+            responseText.append(String.valueOf(chunk.charAt(index)));
+
+            if (onCharAppended != null) {
+                onCharAppended.run();
+            }
+
+            handler.postDelayed(() -> {
+                typeTextRecursive(index + 1, chunk, onCharAppended);
+            }, 25);
+        }
+
     }
 
     private void playResponse(Context context, String responseText) {
