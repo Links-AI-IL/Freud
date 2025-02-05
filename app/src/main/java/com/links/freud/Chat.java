@@ -150,7 +150,9 @@ public class Chat extends AppCompatActivity {
         keywordsList = new ArrayList<>(Arrays.asList(keywords));
 
         SharedPreferences prefs = getSharedPreferences("Settings", MODE_PRIVATE);
-        lastLanguage = prefs.getString("My_Lang", "iw");
+        String savedLanguage = prefs.getString("My_Lang", "iw");
+        lastLanguage = savedLanguage.equals("iw") ? "he" : "en";
+
         Log.d("shneor1", "Loaded language: " + lastLanguage);
 
         sendM = findViewById(R.id.send);
