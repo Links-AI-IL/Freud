@@ -29,9 +29,9 @@ public class LinksApi {
 
     // region Constant Members
 
-    private final String API_URL = "http://188.120.143.210";
+    private final String API_URL = "https://claudeserver.onrender.com";
 
-    private final int API_PORT = 5000;
+    private final int API_PORT = 443;
 
     private final String API_QUERY = "/query";
 
@@ -206,11 +206,11 @@ public class LinksApi {
     // region Private Methods
 
     private String getApiQuery() {
-        return String.format(API_TEMPLATE, API_URL, API_PORT, API_QUERY);
+        return API_URL + API_QUERY;
     }
 
     private String getApiUpload() {
-        return String.format(API_TEMPLATE, API_URL, API_PORT, API_UPLOAD);
+        return API_URL + API_UPLOAD;
     }
 
     // endregion
