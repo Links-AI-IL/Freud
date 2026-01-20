@@ -736,7 +736,7 @@ public class Chat extends AppCompatActivity {
 
                 // TODO להחליף למספר של ערן!!!
 
-                getLocation.getLastLocation(view.getContext(), "0554424754", query.toString());
+                getLocation.getLastLocation(view.getContext(), "0533961782", query.toString());
 
                 Log.e("shneor", "Location 4");
 
