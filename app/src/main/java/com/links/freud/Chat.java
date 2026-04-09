@@ -574,9 +574,21 @@ public class Chat extends AppCompatActivity {
         _recyclerView.post(() -> _recyclerView.smoothScrollToPosition(_questionResponseList.size() - 1));
     }
 
+    private String cleanMarkdown(String text) {
+        if (text == null) return "";
+        return text
+                .replace("**", "")
+                .replace("__", "")
+                .replace("###", "")
+                .replace("##", "")
+                .replace("#", "");
+    }
+
     private void updateResponse(String chunk) {
         int lastPosition = _questionResponseList.size() - 1;
         if (lastPosition < 0) return;
+
+        chunk = cleanMarkdown(chunk);
 
         _currAnswer += chunk;
         _questionResponseList.get(lastPosition).setResponse(_currAnswer);
@@ -587,6 +599,7 @@ public class Chat extends AppCompatActivity {
     private void setFinalResponse(String finalResponse) {
         int lastPosition = _questionResponseList.size() - 1;
         if (lastPosition >= 0) {
+            finalResponse = cleanMarkdown(finalResponse);
             _questionResponseList.get(lastPosition).setResponse(finalResponse);
             _adapter.notifyItemChanged(lastPosition);
         }
