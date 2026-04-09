@@ -137,24 +137,30 @@ public class LinksApi {
                         StringBuilder fullResponseBuilder = new StringBuilder();
 
                         while ((line = reader.readLine()) != null) {
+                            if (!line.startsWith("data: ")) continue;
 
-                            if (line.startsWith("data: ")) {
+                            String jsonPart = line.substring(6).trim();
 
-                                String jsonPart = line.substring(6).trim();
+                            try {
+                                JSONObject obj = new JSONObject(jsonPart);
 
-                                try {
-                                    JSONObject obj = new JSONObject(jsonPart);
+                                if (obj.has("text")) {
                                     String text = obj.getString("text");
-
                                     fullResponseBuilder.append(text);
 
                                     if (_chunkCallback != null) {
                                         _chunkCallback.onResponse(text);
                                     }
+                                } else if (obj.has("error")) {
+                                    String error = obj.getString("error");
 
-                                } catch (Exception e) {
-                                    Log.e("SSE_PARSE", "Failed to parse: " + jsonPart);
+                                    if (_chunkCallback != null) {
+                                        _chunkCallback.onError(error);
+                                    }
                                 }
+
+                            } catch (Exception e) {
+                                Log.e("SSE_PARSE", "Failed to parse: " + jsonPart, e);
                             }
                         }
 

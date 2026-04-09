@@ -585,6 +585,11 @@ public class Chat extends AppCompatActivity {
     }
 
     private void setFinalResponse(String finalResponse) {
+        int lastPosition = _questionResponseList.size() - 1;
+        if (lastPosition >= 0) {
+            _questionResponseList.get(lastPosition).setResponse(finalResponse);
+            _adapter.notifyItemChanged(lastPosition);
+        }
         _currAnswer = "";
     }
 
