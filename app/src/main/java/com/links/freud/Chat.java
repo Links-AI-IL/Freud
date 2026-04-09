@@ -580,13 +580,8 @@ public class Chat extends AppCompatActivity {
 
         _currAnswer += chunk;
         _questionResponseList.get(lastPosition).setResponse(_currAnswer);
-
-        RecyclerView.ViewHolder vh = _recyclerView.findViewHolderForAdapterPosition(lastPosition);
-        if (vh instanceof QuestionResponseAdapter.ViewHolder) {
-            QuestionResponseAdapter.ViewHolder holder = (QuestionResponseAdapter.ViewHolder) vh;
-
-            holder.typeText(chunk, () -> holder.itemView.post(() -> scrollToItemBottom(lastPosition)));
-        }
+        _adapter.notifyItemChanged(lastPosition);
+        _recyclerView.post(() -> scrollToItemBottom(lastPosition));
     }
 
     private void setFinalResponse(String finalResponse) {

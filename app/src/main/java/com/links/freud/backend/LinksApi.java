@@ -7,6 +7,7 @@ import androidx.annotation.NonNull;
 import com.google.gson.Gson;
 
 import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -132,14 +133,28 @@ public class LinksApi {
                     try (BufferedReader reader = new BufferedReader(
                             new InputStreamReader(response.body().byteStream()))) {
 
-                        int character;
+                        String line;
                         StringBuilder fullResponseBuilder = new StringBuilder();
 
-                        while ((character = reader.read()) != -1) {
-                            char charAsString = (char) character;
-                            fullResponseBuilder.append(charAsString);
-                            if (_chunkCallback != null) {
-                                _chunkCallback.onResponse(Character.toString(charAsString));
+                        while ((line = reader.readLine()) != null) {
+
+                            if (line.startsWith("data: ")) {
+
+                                String jsonPart = line.substring(6).trim();
+
+                                try {
+                                    JSONObject obj = new JSONObject(jsonPart);
+                                    String text = obj.getString("text");
+
+                                    fullResponseBuilder.append(text);
+
+                                    if (_chunkCallback != null) {
+                                        _chunkCallback.onResponse(text);
+                                    }
+
+                                } catch (Exception e) {
+                                    Log.e("SSE_PARSE", "Failed to parse: " + jsonPart);
+                                }
                             }
                         }
 
